@@ -3,7 +3,9 @@
 This is the single entry point that main.py (CLI) and app.py (Streamlit)
 both call. Each step is handled by its own small module.
 """
+from hr_assistant.logger import get_logger
 
+logger = get_logger(__name__)
 
 from hr_assistant import config
 from hr_assistant.agent import create_hr_agent
@@ -21,6 +23,7 @@ from hr_assistant.vector_store import (
 
 )
 
+# data ingestion
 
 def build_vector_store_for_document(file_path: str = config.DATA_FILE_PATH):
     """Load + split + embed the document, 
@@ -28,10 +31,11 @@ def build_vector_store_for_document(file_path: str = config.DATA_FILE_PATH):
 
     if vector_store_exists():
         print("Found an existing FAISS vector store.")
+        logger.info("Vector store already exists on disk, reusing it")
         return load_vector_store()
     
     print("NO saved vector store found , building one from scractch..")
-
+    logger.info("No vector store is found , buuilding one from scratch")
     documents = load_document(file_path)
     chunks = split_into_chunks(documents)
     print(f"Loaded '{file_path}' and split it into {len(chunks)} chunks.")
@@ -43,7 +47,7 @@ def build_vector_store_for_document(file_path: str = config.DATA_FILE_PATH):
 
 def build_hr_assistant(file_path: str = config.DATA_FILE_PATH):
     """Build the full RAG agent, ready to answer questions."""
-    
+    logger.info("Building the HR assistant")
     config.check_api_keys()
     
 
@@ -54,7 +58,7 @@ def build_hr_assistant(file_path: str = config.DATA_FILE_PATH):
     llm = get_llm()
     agent = create_hr_agent(llm, [search_tool])
 
-  
+    logger.info("HR assistant is ready to take the question")
     return agent
 
 
@@ -62,7 +66,7 @@ def build_hr_assistant(file_path: str = config.DATA_FILE_PATH):
 def ask(agent, question: str) -> str:
     """Ask the agent a question and
     return its final answer as plain text."""
-   
+    logger.info("User question: %s", question)
     response = agent.invoke({"messages": [{"role": "user", "content": question}]})
     answer = response["messages"][-1].content
      

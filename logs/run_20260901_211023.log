@@ -1,0 +1,44 @@
+2026-09-01 21:10:27,902 | INFO | hr_assistant.pipeline | Building the HR assistant
+2026-09-01 21:10:27,903 | INFO | hr_assistant.pipeline | Vector store already exists on disk, reusing it
+2026-09-01 21:10:27,903 | INFO | hr_assistant.vector_store | Loading FAISS index from 'data\faiss_index'
+2026-09-01 21:10:27,903 | INFO | hr_assistant.embeedings | Initializing embedding LLM 'jina-embeddings-v2-base-en' 
+2026-09-01 21:10:27,908 | INFO | faiss.loader | Loading faiss with AVX2 support.
+2026-09-01 21:10:27,909 | INFO | faiss.loader | Could not load library with AVX2 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
+2026-09-01 21:10:27,909 | INFO | faiss.loader | Loading faiss.
+2026-09-01 21:10:29,097 | INFO | faiss.loader | Successfully loaded faiss.
+2026-09-01 21:10:29,152 | INFO | hr_assistant.vector_store | Creating retriever with top_k = 3
+2026-09-01 21:10:29,155 | INFO | hr_assistant.llm | Intiliazing the LLM 'openai/gpt-oss-120b'
+2026-09-01 21:10:29,921 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-09-01 21:10:29,973 | INFO | hr_assistant.agent | HR agent is ready
+2026-09-01 21:10:29,973 | INFO | hr_assistant.pipeline | HR assistant is ready to take the question
+2026-09-01 21:11:35,441 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-01 21:11:35,444 | INFO | hr_assistant.pipeline | User question: hi
+2026-09-01 21:11:38,484 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-01 21:12:16,105 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-01 21:12:16,109 | INFO | hr_assistant.pipeline | User question: can you tell me the leave policy of your company
+2026-09-01 21:12:18,163 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-01 21:12:18,169 | INFO | hr_assistant.tools | search_hr_policy called with query : What is the company's leave policy?
+2026-09-01 21:12:33,485 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-01 21:12:36,830 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-01 21:13:55,534 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-01 21:13:55,538 | INFO | hr_assistant.pipeline | User question: hello
+2026-09-01 21:13:59,678 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-01 21:14:14,398 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-01 21:14:14,401 | INFO | hr_assistant.pipeline | User question: tell me about holidy pocy
+2026-09-01 21:14:17,904 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-01 21:14:17,907 | INFO | hr_assistant.tools | search_hr_policy called with query : holiday policy
+2026-09-01 21:14:22,205 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-01 21:14:24,304 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-01 21:15:32,647 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-01 21:15:32,649 | INFO | hr_assistant.pipeline | User question: thank you for the response , this helps me a lot 
+2026-09-01 21:15:40,585 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-01 21:16:04,011 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-01 21:16:04,013 | INFO | hr_assistant.pipeline | User question: can u tell me my name 
+2026-09-01 21:16:11,720 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-01 21:16:22,360 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-01 21:16:22,362 | INFO | hr_assistant.pipeline | User question: my name is ashwith 
+2026-09-01 21:16:28,267 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-01 21:16:29,742 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-01 21:16:29,744 | INFO | hr_assistant.pipeline | User question: now tell me my name 
+2026-09-01 21:16:31,870 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"

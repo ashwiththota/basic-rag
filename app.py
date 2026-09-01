@@ -8,6 +8,9 @@ import streamlit as st
 
 from hr_assistant.pipeline import ask, build_hr_assistant
 
+from hr_assistant.logger import get_logger
+logger = get_logger(__name__)
+
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
