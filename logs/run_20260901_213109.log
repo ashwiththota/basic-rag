@@ -1,0 +1,29 @@
+2026-09-01 21:31:11,031 | INFO | hr_assistant.pipeline | Building the HR assistant
+2026-09-01 21:31:11,032 | INFO | hr_assistant.pipeline | Vector store already exists on disk, reusing it
+2026-09-01 21:31:11,033 | INFO | hr_assistant.vector_store | Loading FAISS index from 'data\faiss_index'
+2026-09-01 21:31:11,033 | INFO | hr_assistant.embeedings | Initializing embedding LLM 'jina-embeddings-v2-base-en' 
+2026-09-01 21:31:11,037 | INFO | faiss.loader | Loading faiss with AVX2 support.
+2026-09-01 21:31:11,037 | INFO | faiss.loader | Could not load library with AVX2 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
+2026-09-01 21:31:11,037 | INFO | faiss.loader | Loading faiss.
+2026-09-01 21:31:11,066 | INFO | faiss.loader | Successfully loaded faiss.
+2026-09-01 21:31:11,078 | INFO | hr_assistant.vector_store | Creating retriever with top_k = 3
+2026-09-01 21:31:11,081 | INFO | hr_assistant.llm | Intiliazing the LLM 'openai/gpt-oss-120b'
+2026-09-01 21:31:11,804 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-09-01 21:31:11,820 | INFO | hr_assistant.agent | HR agent is ready
+2026-09-01 21:31:11,820 | INFO | hr_assistant.pipeline | HR assistant is ready to take the question
+2026-09-01 21:31:16,643 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-01 21:31:16,645 | INFO | hr_assistant.pipeline | User question: hi 
+2026-09-01 21:31:22,891 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-01 21:31:22,894 | INFO | hr_assistant.pipeline | User question: health policy 
+2026-09-01 21:31:25,376 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-01 21:31:29,847 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-01 21:31:29,856 | INFO | hr_assistant.tools | search_hr_policy called with query : health policy
+2026-09-01 21:31:39,238 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-01 21:31:45,022 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-01 21:32:26,377 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-01 21:32:26,380 | INFO | hr_assistant.pipeline | User question: yes i want to contact the hr directly what is the process
+2026-09-01 21:32:34,408 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-01 21:32:34,415 | INFO | hr_assistant.tools | search_hr_policy called with query : process to contact HR directly
+2026-09-01 21:32:46,495 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-01 21:32:53,284 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"

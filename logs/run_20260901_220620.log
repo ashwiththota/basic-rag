@@ -1,0 +1,31 @@
+2026-09-01 22:06:23,280 | INFO | hr_assistant.pipeline | Building the HR assistant
+2026-09-01 22:06:23,281 | INFO | hr_assistant.tracing | LangSmith tracing ENABLED - project 'hr_policy_assistant', traces at https://smith.langchain.com
+2026-09-01 22:06:23,282 | INFO | hr_assistant.pipeline | Vector store already exists on disk, reusing it
+2026-09-01 22:06:23,282 | INFO | hr_assistant.vector_store | Loading FAISS index from 'data\faiss_index'
+2026-09-01 22:06:23,282 | INFO | hr_assistant.embeedings | Initializing embedding LLM 'jina-embeddings-v2-base-en' 
+2026-09-01 22:06:23,287 | INFO | faiss.loader | Loading faiss with AVX2 support.
+2026-09-01 22:06:23,288 | INFO | faiss.loader | Could not load library with AVX2 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
+2026-09-01 22:06:23,288 | INFO | faiss.loader | Loading faiss.
+2026-09-01 22:06:23,401 | INFO | faiss.loader | Successfully loaded faiss.
+2026-09-01 22:06:23,415 | INFO | hr_assistant.vector_store | Creating retriever with top_k = 3
+2026-09-01 22:06:23,419 | INFO | hr_assistant.llm | Intiliazing the LLM 'openai/gpt-oss-120b'
+2026-09-01 22:06:24,432 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-09-01 22:06:24,443 | INFO | hr_assistant.agent | HR agent is ready
+2026-09-01 22:06:24,443 | INFO | hr_assistant.pipeline | HR assistant is ready to take the question
+2026-09-01 22:06:44,480 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-01 22:06:44,484 | INFO | hr_assistant.pipeline | User question: leave policy
+2026-09-01 22:06:49,865 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-01 22:06:49,894 | INFO | hr_assistant.tools | search_hr_policy called with query : leave policy
+2026-09-01 22:06:59,700 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-01 22:07:05,116 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-01 22:15:14,041 | ERROR | asyncio | Exception in callback _ProactorBasePipeTransport._call_connection_lost()
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost()>
+Traceback (most recent call last):
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\asyncio\events.py", line 94, in _run
+    self._context.run(self._callback, *self._args)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
