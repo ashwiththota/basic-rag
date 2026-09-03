@@ -1,0 +1,38 @@
+2026-09-02 21:27:53,241 | INFO | hr_assistant.pipeline | Building the HR assistant
+2026-09-02 21:27:53,241 | INFO | hr_assistant.tracing | LangSmith tracing ENABLED - project 'hr_policy_assistant', traces at https://smith.langchain.com
+2026-09-02 21:28:01,300 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-02 21:28:01,302 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/exists "HTTP/1.1 200 OK"
+2026-09-02 21:28:01,312 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-09-02 21:28:01,312 | INFO | hr_assistant.vector_store | Connecting to existing Qdrant collection 'hr_policy'
+2026-09-02 21:28:01,313 | INFO | hr_assistant.embeedings | Initializing embedding LLM 'jina-embeddings-v2-base-en' 
+2026-09-02 21:28:12,561 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy "HTTP/1.1 200 OK"
+2026-09-02 21:28:12,567 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-02 21:28:22,401 | INFO | hr_assistant.vector_store | Creating retriever with top_k = 3
+2026-09-02 21:28:22,405 | INFO | hr_assistant.llm | Intiliazing the LLM 'openai/gpt-oss-120b'
+2026-09-02 21:28:23,036 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-09-02 21:28:23,210 | INFO | hr_assistant.agent | HR agent is ready
+2026-09-02 21:28:23,211 | INFO | hr_assistant.pipeline | HR assistant is ready to take the question
+2026-09-02 21:28:40,215 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-02 21:28:40,220 | INFO | hr_assistant.pipeline | User question: hii i am ashwith 
+2026-09-02 21:28:48,808 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-02 21:28:55,404 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-02 21:28:55,420 | INFO | hr_assistant.pipeline | Final answer: Hello Ashwith! 👋 How can I help you today?
+2026-09-02 21:29:03,066 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-02 21:29:38,578 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-02 21:29:38,581 | INFO | hr_assistant.pipeline | User question: tell me about the leave policy in 3 lines 
+2026-09-02 21:29:44,717 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-02 21:29:49,530 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-02 21:29:49,696 | INFO | hr_assistant.tools | search_hr_policy called with query : What is the company's leave policy?
+2026-09-02 21:29:59,677 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-02 21:29:59,685 | INFO | hr_assistant.tools | Founnd 0 matching chunks (s)
+2026-09-02 21:30:04,276 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-02 21:30:04,289 | INFO | hr_assistant.tools | search_hr_policy called with query : What is the company's leave policy?
+2026-09-02 21:30:13,901 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-02 21:30:13,906 | INFO | hr_assistant.tools | Founnd 0 matching chunks (s)
+2026-09-02 21:30:18,814 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-02 21:30:18,826 | INFO | hr_assistant.tools | search_hr_policy called with query : What is the company's leave policy?
+2026-09-02 21:30:27,458 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-02 21:30:27,464 | INFO | hr_assistant.tools | Founnd 0 matching chunks (s)
+2026-09-02 21:30:32,750 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-02 21:30:32,760 | INFO | hr_assistant.pipeline | Final answer: I’m sorry, but I don’t have that information.
+2026-09-02 21:30:36,941 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"

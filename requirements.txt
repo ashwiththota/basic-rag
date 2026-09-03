@@ -14,9 +14,12 @@ langchain-community
 langchain-groq
 langchain-text-splitters
 
-# vector database
+# vector store 
 
-faiss-cpu
+langchain-qdrant
+qdrant-client
+
+
 
 # notebook 
 

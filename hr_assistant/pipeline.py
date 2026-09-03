@@ -18,7 +18,6 @@ from hr_assistant.guadrails import REFUSAL_MESSAGE , check_input , check_output
 from hr_assistant.vector_store import (
     build_vector_store,
     get_retriever,
-    save_vector_store,
     vector_store_exists,
     load_vector_store,
 
@@ -32,22 +31,24 @@ from hr_assistant.tracing import check_langsmith_tracing
 def build_vector_store_for_document(file_path: str = config.DATA_FILE_PATH):
     """Load + split + embed the document, 
     reusing the Qdrant Cloud collection if we have one."""
-
     if vector_store_exists():
-        print("Found an existing FAISS vector store.")
-        logger.info("Vector store already exists on disk, reusing it")
+        print("Found an existing Qdrant Cloud collection, connecting to it (fast, no re-embedding).")
+        logger.info("Qdrant Cloud collection already exists, reusing it")
         return load_vector_store()
-    
-    print("NO saved vector store found , building one from scractch..")
-    logger.info("No vector store is found , buuilding one from scratch")
+
+    print("No Qdrant Cloud collection found, building one from scratch...")
+    logger.info("No Qdrant Cloud collection found, building one from scratch")
     documents = load_document(file_path)
     chunks = split_into_chunks(documents)
     print(f"Loaded '{file_path}' and split it into {len(chunks)} chunks.")
 
     vector_store = build_vector_store(chunks)
-    save_vector_store(vector_store)
-    print("Vector store built and saved to disk for next time.")
+    print("Vector store built and uploaded to Qdrant Cloud.")
     return vector_store
+
+
+#data retrieveal phase
+
 
 def build_hr_assistant(file_path: str = config.DATA_FILE_PATH):
     """Build the full RAG agent, ready to answer questions."""

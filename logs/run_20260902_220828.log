@@ -1,0 +1,34 @@
+2026-09-02 22:08:33,680 | INFO | hr_assistant.pipeline | Building the HR assistant
+2026-09-02 22:08:33,681 | INFO | hr_assistant.tracing | LangSmith tracing ENABLED - project 'hr_policy_assistant', traces at https://smith.langchain.com
+2026-09-02 22:08:38,990 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-02 22:08:38,994 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/exists "HTTP/1.1 200 OK"
+2026-09-02 22:08:38,997 | INFO | hr_assistant.pipeline | No Qdrant Cloud collection found, building one from scratch
+2026-09-02 22:08:39,016 | INFO | hr_assistant.document_loader | LOADING DOCUMENTS from 'data\hr_policy.txt'
+2026-09-02 22:08:39,017 | INFO | hr_assistant.document_loader | Loaded 1 document(s)
+2026-09-02 22:08:39,019 | INFO | hr_assistant.splitter | Split document(s) into 9 chunk(s)
+2026-09-02 22:08:39,019 | INFO | hr_assistant.vector_store | Embedding 9 chunk(s) and uploading to Qdrant collection 'hr_policy'...
+2026-09-02 22:08:39,019 | INFO | hr_assistant.embeedings | Initializing embedding LLM 'jina-embeddings-v2-base-en' 
+2026-09-02 22:08:43,391 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/exists "HTTP/1.1 200 OK"
+2026-09-02 22:08:44,826 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-02 22:08:53,647 | INFO | httpx | HTTP Request: PUT https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy "HTTP/1.1 200 OK"
+2026-09-02 22:09:07,979 | INFO | httpx | HTTP Request: PUT https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points?wait=true "HTTP/1.1 200 OK"
+2026-09-02 22:09:12,779 | INFO | httpx | HTTP Request: PUT https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points?wait=true "HTTP/1.1 200 OK"
+2026-09-02 22:09:16,091 | INFO | httpx | HTTP Request: PUT https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points?wait=true "HTTP/1.1 200 OK"
+2026-09-02 22:09:16,093 | INFO | hr_assistant.vector_store | Uploaded to Qdrant collection 'hr_policy'
+2026-09-02 22:09:16,093 | INFO | hr_assistant.vector_store | Creating retriever with top_k = 3
+2026-09-02 22:09:16,097 | INFO | hr_assistant.llm | Intiliazing the LLM 'openai/gpt-oss-120b'
+2026-09-02 22:09:16,867 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-09-02 22:09:16,898 | INFO | hr_assistant.agent | HR agent is ready
+2026-09-02 22:09:16,898 | INFO | hr_assistant.pipeline | HR assistant is ready to take the question
+2026-09-02 22:10:34,553 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-02 22:10:34,557 | INFO | hr_assistant.pipeline | User question: leave policy in 3 lines 
+2026-09-02 22:10:39,332 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-02 22:10:45,158 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-02 22:10:45,178 | INFO | hr_assistant.tools | search_hr_policy called with query : What is the company's leave policy?
+2026-09-02 22:10:53,544 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-02 22:10:53,552 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-02 22:10:57,231 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-02 22:10:57,239 | INFO | hr_assistant.pipeline | Final answer: - Full‑time staff receive **20 days of paid annual leave** each calendar year (carry‑forward up to 5 days).  
+- Leave must be requested via the HR portal **at least 5 working days in advance**; sick leave is separate (10 paid days, medical certificate required after 2 days).  
+- Public holidays (12 per year) are observed, and work on a holiday earns **compensatory leave**.
+2026-09-02 22:11:01,224 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
