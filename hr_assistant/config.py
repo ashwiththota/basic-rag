@@ -12,6 +12,9 @@ load_dotenv()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 JINA_API_KEY = os.getenv("JINA_API_KEY")
 
+# GATEWAY API
+PORTKEY_API_KEY = os.getenv("PORTKEY_KEY_API")
+
 ## GUADRAILS LAYER 
 
 GUARD_MODEL_NAME = "openai/gpt-oss-safeguard-20b"
