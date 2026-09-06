@@ -38,3 +38,5 @@ langchain-openai
 
 # # every gateway -- gives you an openai compatible code
 
+# EVALUVATIONS WITH THE FRAMEWORK LANGSMITH
+openevals

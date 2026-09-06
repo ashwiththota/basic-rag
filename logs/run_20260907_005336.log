@@ -1,0 +1,52 @@
+2026-09-07 00:53:48,338 | INFO | hr_assistant.pipeline | Building the HR assistant
+2026-09-07 00:53:48,338 | INFO | hr_assistant.tracing | LangSmith tracing ENABLED - project 'hr_policy_assistant', traces at https://smith.langchain.com
+2026-09-07 00:53:51,579 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/exists "HTTP/1.1 200 OK"
+2026-09-07 00:53:51,580 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-07 00:53:51,584 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-09-07 00:53:51,584 | INFO | hr_assistant.vector_store | Connecting to existing Qdrant collection 'hr_policy'
+2026-09-07 00:53:51,604 | INFO | hr_assistant.embeedings | Initializing embedding LLM 'jina-embeddings-v2-base-en' 
+2026-09-07 00:53:53,832 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy "HTTP/1.1 200 OK"
+2026-09-07 00:53:54,449 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-07 00:53:57,135 | INFO | hr_assistant.vector_store | Creating retriever with top_k = 3
+2026-09-07 00:53:57,140 | INFO | hr_assistant.llm | Intiliazing the LLM via portkey
+2026-09-07 00:53:57,140 | INFO | hr_assistant.gateway | Routing LLM calls through Portkey (provider=@hrpolicy)
+2026-09-07 00:53:59,303 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-09-07 00:53:59,313 | INFO | hr_assistant.agent | HR agent is ready
+2026-09-07 00:53:59,313 | INFO | hr_assistant.pipeline | HR assistant is ready to take the question
+2026-09-07 00:55:51,702 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-07 00:55:51,707 | INFO | hr_assistant.pipeline | User question: i need to take a probat 
+2026-09-07 00:55:57,740 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 00:56:05,743 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 00:56:05,770 | INFO | hr_assistant.tools | search_hr_policy called with query : probation policy
+2026-09-07 00:56:15,250 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-07 00:56:15,259 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-07 00:56:19,153 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 00:56:19,163 | INFO | hr_assistant.pipeline | Final answer: Sure! Here’s the key information from our HR policy regarding probation:
+
+**Probation Period**
+- **Duration:** All new employees have a **3‑month probation period** starting from their date of joining.
+- **Leave:** During probation you are **not eligible for paid leave**. However, you may request **unpaid leave** in emergencies, which requires your manager’s approval.
+- **Performance Review:** At the end of the 3‑month period, your performance will be reviewed to confirm continued employment.
+
+**Notice Period (if you need to resign while still on probation)**
+- **Notice required:** 15 days’ notice (instead of the standard 30 days for regular employees).
+
+If you need to request unpaid leave or have any other questions about your probation status, just let me know and I can help you draft a request to your manager.
+2026-09-07 00:56:23,240 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 00:58:52,653 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-07 00:58:52,656 | INFO | hr_assistant.pipeline | User question: i am felling sick what are things that i can take .
+2026-09-07 00:58:54,140 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 00:58:56,250 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 00:58:56,265 | INFO | hr_assistant.tools | search_hr_policy called with query : sick leave policy
+2026-09-07 00:58:58,293 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-07 00:58:58,303 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-07 00:58:59,408 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 00:58:59,418 | INFO | hr_assistant.pipeline | Final answer: I’m sorry you’re not feeling well. According to our HR policy:
+
+- **Sick Leave Entitlement:** All full‑time employees receive **10 paid sick days per year**.  
+- **Medical Certificate:** If your sick leave extends **more than 2 consecutive days**, you’ll need to provide a medical certificate.  
+- **How to Apply:** Submit your sick‑leave request through the HR portal as soon as possible (ideally before your first day off).  
+- **Pay:** Sick days are paid at your regular rate.  
+
+If you need further assistance—such as help submitting the request or locating the HR portal—just let me know!
+2026-09-07 00:59:00,221 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
