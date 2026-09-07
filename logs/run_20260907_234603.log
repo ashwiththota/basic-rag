@@ -1,0 +1,47 @@
+2026-09-07 23:46:19,450 | INFO | hr_assistant.pipeline | Building the HR assistant
+2026-09-07 23:46:19,450 | INFO | hr_assistant.tracing | LangSmith tracing ENABLED - project 'hr_policy_assistant', traces at https://smith.langchain.com
+2026-09-07 23:46:24,912 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/exists "HTTP/1.1 200 OK"
+2026-09-07 23:46:24,912 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-07 23:46:24,938 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-09-07 23:46:24,939 | INFO | hr_assistant.vector_store | Connecting to existing Qdrant collection 'hr_policy'
+2026-09-07 23:46:24,940 | INFO | hr_assistant.embeedings | Initializing embedding LLM 'jina-embeddings-v2-base-en' 
+2026-09-07 23:46:27,530 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy "HTTP/1.1 200 OK"
+2026-09-07 23:46:29,007 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-07 23:47:41,329 | INFO | hr_assistant.vector_store | Creating retriever with top_k = 3
+2026-09-07 23:47:41,333 | INFO | hr_assistant.llm | Intiliazing the LLM via portkey
+2026-09-07 23:47:41,334 | INFO | hr_assistant.gateway | Routing LLM calls through Portkey (provider=@hrpolicy)
+2026-09-07 23:47:43,767 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-09-07 23:47:43,838 | INFO | hr_assistant.agent | HR agent is ready
+2026-09-07 23:47:43,839 | INFO | hr_assistant.pipeline | HR assistant is ready to take the question
+2026-09-07 23:47:54,308 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-07 23:47:54,314 | INFO | hr_assistant.pipeline | User question: hii
+2026-09-07 23:47:55,338 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 23:47:57,689 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 23:47:57,714 | INFO | hr_assistant.pipeline | Final answer: Hello! How can I help you today? 😊
+2026-09-07 23:47:58,201 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 23:48:14,882 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-07 23:48:14,887 | INFO | hr_assistant.pipeline | User question: company name
+2026-09-07 23:48:16,328 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 23:48:17,970 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 23:48:17,996 | INFO | hr_assistant.tools | search_hr_policy called with query : company name
+2026-09-07 23:48:24,826 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-07 23:48:24,832 | INFO | hr_assistant.tools | Founnd 0 matching chunks (s)
+2026-09-07 23:48:29,136 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 23:48:29,148 | INFO | hr_assistant.tools | search_hr_policy called with query : company name
+2026-09-07 23:48:34,758 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-07 23:48:34,763 | INFO | hr_assistant.tools | Founnd 0 matching chunks (s)
+2026-09-07 23:48:35,885 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 23:48:35,899 | INFO | hr_assistant.tools | search_hr_policy called with query : company name
+2026-09-07 23:48:41,516 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-07 23:48:41,521 | INFO | hr_assistant.tools | Founnd 0 matching chunks (s)
+2026-09-07 23:48:42,848 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 23:48:42,862 | INFO | hr_assistant.tools | search_hr_policy called with query : company name
+2026-09-07 23:48:44,061 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-07 23:48:44,066 | INFO | hr_assistant.tools | Founnd 0 matching chunks (s)
+2026-09-07 23:48:44,793 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 23:48:44,804 | INFO | hr_assistant.tools | search_hr_policy called with query : company name
+2026-09-07 23:48:53,190 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-07 23:48:53,195 | INFO | hr_assistant.tools | Founnd 0 matching chunks (s)
+2026-09-07 23:48:54,728 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 23:48:54,738 | INFO | hr_assistant.pipeline | Final answer: I’m sorry, but I don’t have that information.
+2026-09-07 23:48:56,121 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"

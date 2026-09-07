@@ -1,49 +1,368 @@
-COMPANY HR POLICY HANDBOOK
-Acme Corp - Employee Handbook (Demo Document)
+================================================================================
+APEX GLOBAL TECHNOLOGIES INC.
+OFFICIAL EMPLOYEE HANDBOOK & OPERATING GUIDELINES
+Document Control Number: AGT-HR-2026-V4
+Effective Date: January 1, 2026
+Target Audience: All Full-Time, Part-Time, and Contractual Personnel
+================================================================================
 
-1. LEAVE POLICY
-All full-time employees are entitled to 20 days of paid annual leave per calendar year.
-Leave requests must be submitted through the HR portal at least 5 working days in advance.
-Unused annual leave can be carried forward to the next year, up to a maximum of 5 days.
-Sick leave is separate from annual leave, and employees get 10 paid sick days per year.
-A medical certificate is required for sick leave longer than 2 consecutive days.
+--------------------------------------------------------------------------------
+CHAPTER 1: COMPANY OVERVIEW & LEADERSHIP
+--------------------------------------------------------------------------------
 
-2. WORK FROM HOME POLICY
-Employees may work from home up to 2 days per week, subject to manager approval.
-Fully remote work arrangements require written approval from the department head.
-Employees working from home must be reachable during core hours: 10 AM to 4 PM.
+1.1 WELCOME & CORE MISSION
+Apex Global Technologies Inc. (AGT) is an enterprise software and AI solutions company. Founded in 2018, AGT delivers real-time analytics platforms to global supply chain leaders. Our mission is to transform operational data into actionable intelligence with speed, integrity, and transparency.
 
-3. PROBATION PERIOD
-All new employees undergo a probation period of 3 months from their date of joining.
-During probation, employees are not eligible for paid leave, but may take unpaid leave
-in case of emergencies, subject to manager approval.
-Performance is reviewed at the end of the probation period to confirm employment.
+1.2 EXECUTIVE LEADERSHIP DIRECTORY
+- Chief Executive Officer (CEO): Dr. Aris Thorne
+  * Office: Suite 800, Headquarters (Executive Wing)
+  * Email: aris.thorne@apexglobal.tech
+  * Role & Focus: Directs long-term enterprise strategy, investor relations, and core AI product vision. Dr. Thorne holds weekly open-office hours on Thursdays from 3:00 PM to 4:00 PM EST.
 
-4. NOTICE PERIOD
-Employees who wish to resign must serve a notice period of 30 days.
-During the probation period, the notice period is reduced to 15 days.
-The company may waive the notice period at its discretion, with full and final settlement
-processed within 45 days of the last working day.
+- Chief Technology Officer (CTO): Elena Rostova
+  * Office: Suite 702, Engineering Wing
+  * Email: elena.rostova@apexglobal.tech
+  * Role & Focus: Manages global engineering teams, system infrastructure, cloud security, and core platform development.
 
-5. REIMBURSEMENT POLICY
-Employees can claim reimbursement for approved business expenses such as travel,
-client meals, and internet bills used for official work.
-All reimbursement claims must be submitted with valid bills within 30 days of the expense.
-Claims are processed within 10 working days after approval from the reporting manager.
+- Chief Financial Officer (CFO): Marcus Vance
+  * Office: Suite 810, Finance Wing
+  * Email: marcus.vance@apexglobal.tech
+  * Role & Focus: Oversees financial compliance, payroll operations, equity plans, and internal audit functions.
 
-6. CODE OF CONDUCT
-Employees are expected to maintain professionalism and respect in the workplace.
-Harassment, discrimination, or any form of workplace misconduct will not be tolerated
-and may result in disciplinary action, including termination.
-All employees must complete an annual Code of Conduct training.
+- Head of Human Resources (VP of HR): Sarah Jenkins
+  * Office: Suite 405, People Operations Center
+  * Email: sarah.jenkins@apexglobal.tech
+  * Direct Desk Phone: +1 (555) 019-2831
+  * Role & Focus: Leads organizational development, employee welfare, dispute resolution, compensation reviews, and policy compliance.
 
-7. HOLIDAYS
-The company observes 12 public holidays every year, as per the official holiday calendar
-published by HR at the start of each year.
-Employees working on a public holiday are eligible for compensatory leave.
+1.3 HUMAN RESOURCES POINT OF CONTACT MATRIX
+For specific inquiries, employees must reach out to dedicated HR representatives:
+- Benefits & Health Insurance: David Miller (Senior HR Specialist) — david.miller@apexglobal.tech
+- Leave Requests & Time-Off Queries: Ananya Patel (HR Coordinator) — ananya.patel@apexglobal.tech
+- Workplace Misconduct & Grievances: Sarah Jenkins (VP of HR) — Confidential Hotline: ethics@apexglobal.tech
+- IT Onboarding & Asset Tracking: Kevin Zhang (HR Systems Admin) — kevin.zhang@apexglobal.tech
 
-8. EXIT POLICY
-Upon resignation or termination, employees must complete a clearance process involving
-IT, Finance, and HR departments before their last working day.
-Full and final settlement, including any pending reimbursements and leave encashment,
-is processed within 45 days of the last working day.
+
+--------------------------------------------------------------------------------
+CHAPTER 2: WORK HOURS, SCHEDULES & ATTENDANCE
+--------------------------------------------------------------------------------
+
+2.1 CORE OPERATING HOURS
+- Standard Working Hours: The official workweek at AGT runs from Monday through Friday. Standard business hours are 9:00 AM to 6:00 PM local time, with a mandatory 1-hour unpaid lunch break between 12:00 PM and 2:00 PM.
+- Core Hours Mandate: Regardless of flexible schedules, all full-time employees must be available online or in-office during Core Hours: 10:00 AM to 4:00 PM local time.
+- Total Weekly Requirement: Full-time staff are expected to work 40 hours per week.
+
+2.2 WORK MODELS (ON-SITE, HYBRID, AND REMOTE)
+1. On-Site Employees: Assigned to physical offices (Headquarters or regional hubs). Attendance must be logged using the badge reader system upon arrival and departure.
+2. Hybrid Employees: Required to work in-office a minimum of 3 designated days per week (typically Tuesday, Wednesday, and Thursday). Hybrid arrangements must be documented in writing and approved by the Department Head.
+3. Fully Remote Employees: Permitted to work from an approved home location. Remote employees must maintain a stable high-speed internet connection (minimum 50 Mbps download speed) and remain reachable via Slack and email during Core Hours.
+
+2.3 ATTENDANCE, PUNCTUALITY, AND OVERTIME
+- Tardiness: An employee is considered late if they fail to log in or arrive within 15 minutes of their agreed start time without prior notification to their line manager. Three unexcused tardy incidents within a 30-day rolling window will trigger an informal verbal warning from HR.
+- Overtime Policy: Overtime work (exceeding 40 hours in a single calendar week) applies strictly to Non-Exempt employees. All overtime must be pre-approved by the CFO (Marcus Vance) and line manager in writing. Pre-approved overtime is paid at 1.5 times the regular hourly rate.
+
+
+--------------------------------------------------------------------------------
+CHAPTER 3: LEAVE POLICIES & TIME OFF
+--------------------------------------------------------------------------------
+
+3.1 PAID TIME OFF (PTO) / VACATION LEAVE
+- Annual Accrual Rate: Full-time employees accrue Paid Time Off at a rate of 1.5 days per completed calendar month of service, totaling 18 days of PTO per calendar year.
+- Accrual Start: New hires begin accruing PTO from their first full day of employment but cannot take accrued PTO during their 90-day probationary period, except in emergencies approved by Sarah Jenkins.
+- Notice Requirement: PTO requests of 3 consecutive days or fewer must be submitted at least 5 business days in advance via the HR Portal. PTO requests exceeding 3 consecutive days require 14 days' advance notice and manager approval.
+- Rollover & Cap: A maximum of 5 unused PTO days may be carried forward into the subsequent calendar year. Carried-over days must be used by March 31 of the new year, or they will lapse without cash payout.
+
+3.2 SICK LEAVE POLICY
+- Annual Entitlement: All full-time employees receive 10 paid Sick Leave days per calendar year, granted upfront on January 1st. Mid-year hires receive a pro-rated allocation.
+- Medical Certification:
+  * For sick leaves lasting 1 or 2 consecutive days, self-certification via the HR Portal is acceptable.
+  * For sick leave extending to 3 or more consecutive business days, a valid medical certificate issued by a licensed physician must be uploaded to the portal before returning to work.
+- Unused Sick Leave: Unused sick leave cannot be cashed out upon termination or carried forward into the next calendar year.
+
+3.3 PARENTAL LEAVE
+- Maternity Leave: Female employees who have completed at least 12 months of continuous service are eligible for 26 weeks of paid Maternity Leave for up to two surviving children. Requests must be submitted 60 days prior to the expected delivery date.
+- Paternity / Partner Leave: Non-birthing parents who have completed at least 12 months of continuous service are entitled to 4 weeks of paid Paternity Leave, which must be used within 6 months of the child’s birth or legal adoption.
+
+3.4 BEREAVEMENT LEAVE
+Employees are entitled to paid bereavement leave based on relationship proximity:
+- Immediate Family (Spouse, Child, Parent, Sibling): Up to 5 consecutive paid working days.
+- Extended Family (Grandparent, In-law, Aunt, Uncle): Up to 2 consecutive paid working days.
+Requests must be routed to Ananya Patel in HR.
+
+3.5 CASUAL & PERSONAL EMERGENCY LEAVE
+Employees are allocated 4 days of Unpaid Casual Leave per year for unplanned personal administrative emergencies that do not fall under medical reasons. Prior approval from the line manager is required where possible.
+
+
+--------------------------------------------------------------------------------
+CHAPTER 4: CODE OF CONDUCT & RULES & REGULATIONS
+--------------------------------------------------------------------------------
+
+4.1 PROFESSIONAL CONDUCT & ANTI-HARASSMENT
+AGT enforces a strict Zero-Tolerance Policy regarding harassment, discrimination, bullying, or retaliation based on race, gender, sexual orientation, disability, age, religion, or national origin.
+- Reporting Incident Procedure: Employees witnessing or experiencing workplace misconduct must submit a formal complaint directly to Sarah Jenkins or use the anonymous reporting portal at ethics@apexglobal.tech.
+- Investigation Timeline: HR initiates investigations within 48 hours of complaint receipt. Findings are reviewed by a committee comprising Sarah Jenkins (VP of HR) and Dr. Aris Thorne (CEO). Violations result in disciplinary action up to immediate termination without notice.
+
+4.2 INFORMATION SECURITY & ACCEPTABLE USE
+- Device Usage: All software development, corporate communication, and data handling must occur on AGT-issued devices. Using personal unencrypted devices for corporate work is prohibited without written authorization from CTO Elena Rostova.
+- Password and Credential Rules:
+  * Passwords must be a minimum of 14 characters and combine letters, numbers, and symbols.
+  * Passwords must be updated every 90 days.
+  * Multi-Factor Authentication (MFA) is compulsory across all company applications (Slack, Google Workspace, AWS, GitHub).
+- Data Classification: Corporate data is classified as Public, Internal, or Strictly Confidential. Proprietary source code, customer data, and employee PII are classified as Strictly Confidential and must never be copied, transferred, or stored on local drives outside approved encrypted repositories.
+
+4.3 SOCIAL MEDIA & EXTERNAL COMMUNICATIONS
+- Employees must not speak to media representatives or issue public statements on behalf of Apex Global Technologies Inc. without written clearance from the Marketing & Communications Director.
+- Employees sharing work-related milestones on personal social accounts (e.g., LinkedIn) must include a disclaimer stating: "Views expressed are my own and do not represent AGT."
+
+4.4 CONFLICT OF INTEREST & SECONDARY EMPLOYMENT
+- Full-time employees are prohibited from undertaking secondary employment, freelance work, or advisory roles with companies in competing industries without prior written permission from CEO Dr. Aris Thorne.
+- Personal relationships between supervisors and direct reports must be disclosed immediately to HR to prevent conflicts of interest in performance evaluations.
+
+
+--------------------------------------------------------------------------------
+CHAPTER 5: PERFORMANCE EVALUATIONS & PROMOTIONS
+--------------------------------------------------------------------------------
+
+5.1 REVIEW CYCLES
+- Bi-Annual Reviews: Performance evaluations occur twice yearly:
+  1. Mid-Year Review: July (Focuses on goal alignment and feedback).
+  2. End-of-Year Review: December (Determines performance ratings, merit increases, and bonus distributions).
+- Evaluation Framework: Employees are evaluated on a 1 to 5 scale across key competencies: Technical Mastery, Collaboration, Ownership, and Value Delivery.
+
+5.2 PROBATIONARY PERIOD
+- All new hires undergo a 90-day Probationary Period.
+- A formal 45-day check-in and 90-day final review are conducted by the immediate manager and HR.
+- Successful completion leads to permanent status confirmation; underperformance during this window may result in probation extension (up to 30 days) or immediate contract termination.
+
+
+--------------------------------------------------------------------------------
+CHAPTER 6: COMPENSATION, BENEFITS & EXPENSES
+--------------------------------------------------------------------------------
+
+6.1 PAYROLL & PAY SCHEDULES
+- Pay Period: Wages are paid on a monthly schedule on the last working day of each calendar month.
+- Direct Deposit: Salary payouts are processed electronically into designated employee bank accounts registered with Marcus Vance's finance team.
+
+6.2 HEALTH INSURANCE & WELLNESS PROGRAM
+- Health Coverage: Full-time staff are eligible for AGT's Comprehensive Health Plan starting on their first calendar day of the month following their hire date.
+- Wellness Allowance: Employees receive a $100 USD (or equivalent local currency) monthly stipend usable for gym memberships, mental health counseling apps, or ergonomic office supplies. Reimbursements must be submitted through the Finance Portal by the 20th of each month with valid receipts.
+
+6.3 TRAVEL & EXPENSE REIMBURSEMENT
+- Business Travel: Travel for business purposes must be pre-approved by CFO Marcus Vance.
+- Meal Allowances:
+  * Daily Meal Cap during domestic travel: $75 per day.
+  * Daily Meal Cap during international travel: $120 per day.
+- Submission Deadline: Expense reports submitted more than 30 days after the expense occurred will be automatically rejected.
+
+
+--------------------------------------------------------------------------------
+CHAPTER 7: SEPARATION & TERMINATION POLICIES
+--------------------------------------------------------------------------------
+
+7.1 VOLUNTARY RESIGNATION
+- Notice Periods:
+  * Individual Contributors: Required to provide 30 days' written notice.
+  * Managers, Directors, and Executives: Required to provide 60 days' written notice.
+- Resignation letters must be submitted simultaneously to the line manager and Sarah Jenkins (VP of HR).
+
+7.2 EXIT PROCESS & FINAL SETTLEMENT
+- Asset Return: Upon resignation or termination, all company property—including laptops, monitors, security keycards, and intellectual assets—must be returned to Kevin Zhang in HR by or before the employee's last working day.
+- Final Settlement (F&F): Full and final financial settlements, including earned unpaid salary and eligible accrued PTO payouts, will be processed within 14 calendar days following the final working date.
+
+
+--------------------------------------------------------------------------------
+QUICK REFERENCE CONTACT SUMMARY
+--------------------------------------------------------------------------------
+1. Executive Office (CEO): Dr. Aris Thorne | Email: aris.thorne@apexglobal.tech | Phone: Ext. 8001
+2. Engineering & Tech (CTO): Elena Rostova | Email: elena.rostova@apexglobal.tech | Phone: Ext. 7002
+3. Finance & Payroll (CFO): Marcus Vance | Email: marcus.vance@apexglobal.tech | Phone: Ext. 8010
+4. HR Operations (VP of HR): Sarah Jenkins | Email: sarah.jenkins@apexglobal.tech | Phone: +1 (555) 019-2831
+5. Leave & Attendance: Ananya Patel | Email: ananya.patel@apexglobal.tech | Phone: Ext. 4052
+6. Benefits & Health: David Miller | Email: david.miller@apexglobal.tech | Phone: Ext. 4053
+7. IT & Asset Logistics: Kevin Zhang | Email: kevin.zhang@apexglobal.tech | Phone: Ext. 4059
+8. Ethics Hotline: Misconduct Committee | Email: ethics@apexglobal.tech | Phone: Confidential Line
+
+
+================================================================================
+APEX GLOBAL TECHNOLOGIES INC.
+OFFICIAL EMPLOYEE HANDBOOK & OPERATING GUIDELINES
+Document Control Number: AGT-HR-2026-V4
+Effective Date: January 1, 2026
+Target Audience: All Full-Time, Part-Time, and Contractual Personnel
+================================================================================
+
+--------------------------------------------------------------------------------
+CHAPTER 1: COMPANY OVERVIEW & LEADERSHIP
+--------------------------------------------------------------------------------
+
+1.1 WELCOME & CORE MISSION
+Apex Global Technologies Inc. (AGT) is an enterprise software and AI solutions company. Founded in 2018, AGT delivers real-time analytics platforms to global supply chain leaders. Our mission is to transform operational data into actionable intelligence with speed, integrity, and transparency.
+
+1.2 EXECUTIVE LEADERSHIP DIRECTORY
+- Chief Executive Officer (CEO): Dr. Aris Thorne
+  * Office: Suite 800, Headquarters (Executive Wing)
+  * Email: aris.thorne@apexglobal.tech
+  * Role & Focus: Directs long-term enterprise strategy, investor relations, and core AI product vision. Dr. Thorne holds weekly open-office hours on Thursdays from 3:00 PM to 4:00 PM EST.
+
+- Chief Technology Officer (CTO): Elena Rostova
+  * Office: Suite 702, Engineering Wing
+  * Email: elena.rostova@apexglobal.tech
+  * Role & Focus: Manages global engineering teams, system infrastructure, cloud security, and core platform development.
+
+- Chief Financial Officer (CFO): Marcus Vance
+  * Office: Suite 810, Finance Wing
+  * Email: marcus.vance@apexglobal.tech
+  * Role & Focus: Oversees financial compliance, payroll operations, equity plans, and internal audit functions.
+
+- Head of Human Resources (VP of HR): Sarah Jenkins
+  * Office: Suite 405, People Operations Center
+  * Email: sarah.jenkins@apexglobal.tech
+  * Direct Desk Phone: +1 (555) 019-2831
+  * Role & Focus: Leads organizational development, employee welfare, dispute resolution, compensation reviews, and policy compliance.
+
+1.3 HUMAN RESOURCES POINT OF CONTACT MATRIX
+For specific inquiries, employees must reach out to dedicated HR representatives:
+- Benefits & Health Insurance: David Miller (Senior HR Specialist) — david.miller@apexglobal.tech
+- Leave Requests & Time-Off Queries: Ananya Patel (HR Coordinator) — ananya.patel@apexglobal.tech
+- Workplace Misconduct & Grievances: Sarah Jenkins (VP of HR) — Confidential Hotline: ethics@apexglobal.tech
+- IT Onboarding & Asset Tracking: Kevin Zhang (HR Systems Admin) — kevin.zhang@apexglobal.tech
+
+
+--------------------------------------------------------------------------------
+CHAPTER 2: WORK HOURS, SCHEDULES & ATTENDANCE
+--------------------------------------------------------------------------------
+
+2.1 CORE OPERATING HOURS
+- Standard Working Hours: The official workweek at AGT runs from Monday through Friday. Standard business hours are 9:00 AM to 6:00 PM local time, with a mandatory 1-hour unpaid lunch break between 12:00 PM and 2:00 PM.
+- Core Hours Mandate: Regardless of flexible schedules, all full-time employees must be available online or in-office during Core Hours: 10:00 AM to 4:00 PM local time.
+- Total Weekly Requirement: Full-time staff are expected to work 40 hours per week.
+
+2.2 WORK MODELS (ON-SITE, HYBRID, AND REMOTE)
+1. On-Site Employees: Assigned to physical offices (Headquarters or regional hubs). Attendance must be logged using the badge reader system upon arrival and departure.
+2. Hybrid Employees: Required to work in-office a minimum of 3 designated days per week (typically Tuesday, Wednesday, and Thursday). Hybrid arrangements must be documented in writing and approved by the Department Head.
+3. Fully Remote Employees: Permitted to work from an approved home location. Remote employees must maintain a stable high-speed internet connection (minimum 50 Mbps download speed) and remain reachable via Slack and email during Core Hours.
+
+2.3 ATTENDANCE, PUNCTUALITY, AND OVERTIME
+- Tardiness: An employee is considered late if they fail to log in or arrive within 15 minutes of their agreed start time without prior notification to their line manager. Three unexcused tardy incidents within a 30-day rolling window will trigger an informal verbal warning from HR.
+- Overtime Policy: Overtime work (exceeding 40 hours in a single calendar week) applies strictly to Non-Exempt employees. All overtime must be pre-approved by the CFO (Marcus Vance) and line manager in writing. Pre-approved overtime is paid at 1.5 times the regular hourly rate.
+
+
+--------------------------------------------------------------------------------
+CHAPTER 3: LEAVE POLICIES & TIME OFF
+--------------------------------------------------------------------------------
+
+3.1 PAID TIME OFF (PTO) / VACATION LEAVE
+- Annual Accrual Rate: Full-time employees accrue Paid Time Off at a rate of 1.5 days per completed calendar month of service, totaling 18 days of PTO per calendar year.
+- Accrual Start: New hires begin accruing PTO from their first full day of employment but cannot take accrued PTO during their 90-day probationary period, except in emergencies approved by Sarah Jenkins.
+- Notice Requirement: PTO requests of 3 consecutive days or fewer must be submitted at least 5 business days in advance via the HR Portal. PTO requests exceeding 3 consecutive days require 14 days' advance notice and manager approval.
+- Rollover & Cap: A maximum of 5 unused PTO days may be carried forward into the subsequent calendar year. Carried-over days must be used by March 31 of the new year, or they will lapse without cash payout.
+
+3.2 SICK LEAVE POLICY
+- Annual Entitlement: All full-time employees receive 10 paid Sick Leave days per calendar year, granted upfront on January 1st. Mid-year hires receive a pro-rated allocation.
+- Medical Certification:
+  * For sick leaves lasting 1 or 2 consecutive days, self-certification via the HR Portal is acceptable.
+  * For sick leave extending to 3 or more consecutive business days, a valid medical certificate issued by a licensed physician must be uploaded to the portal before returning to work.
+- Unused Sick Leave: Unused sick leave cannot be cashed out upon termination or carried forward into the next calendar year.
+
+3.3 PARENTAL LEAVE
+- Maternity Leave: Female employees who have completed at least 12 months of continuous service are eligible for 26 weeks of paid Maternity Leave for up to two surviving children. Requests must be submitted 60 days prior to the expected delivery date.
+- Paternity / Partner Leave: Non-birthing parents who have completed at least 12 months of continuous service are entitled to 4 weeks of paid Paternity Leave, which must be used within 6 months of the child’s birth or legal adoption.
+
+3.4 BEREAVEMENT LEAVE
+Employees are entitled to paid bereavement leave based on relationship proximity:
+- Immediate Family (Spouse, Child, Parent, Sibling): Up to 5 consecutive paid working days.
+- Extended Family (Grandparent, In-law, Aunt, Uncle): Up to 2 consecutive paid working days.
+Requests must be routed to Ananya Patel in HR.
+
+3.5 CASUAL & PERSONAL EMERGENCY LEAVE
+Employees are allocated 4 days of Unpaid Casual Leave per year for unplanned personal administrative emergencies that do not fall under medical reasons. Prior approval from the line manager is required where possible.
+
+
+--------------------------------------------------------------------------------
+CHAPTER 4: CODE OF CONDUCT & RULES & REGULATIONS
+--------------------------------------------------------------------------------
+
+4.1 PROFESSIONAL CONDUCT & ANTI-HARASSMENT
+AGT enforces a strict Zero-Tolerance Policy regarding harassment, discrimination, bullying, or retaliation based on race, gender, sexual orientation, disability, age, religion, or national origin.
+- Reporting Incident Procedure: Employees witnessing or experiencing workplace misconduct must submit a formal complaint directly to Sarah Jenkins or use the anonymous reporting portal at ethics@apexglobal.tech.
+- Investigation Timeline: HR initiates investigations within 48 hours of complaint receipt. Findings are reviewed by a committee comprising Sarah Jenkins (VP of HR) and Dr. Aris Thorne (CEO). Violations result in disciplinary action up to immediate termination without notice.
+
+4.2 INFORMATION SECURITY & ACCEPTABLE USE
+- Device Usage: All software development, corporate communication, and data handling must occur on AGT-issued devices. Using personal unencrypted devices for corporate work is prohibited without written authorization from CTO Elena Rostova.
+- Password and Credential Rules:
+  * Passwords must be a minimum of 14 characters and combine letters, numbers, and symbols.
+  * Passwords must be updated every 90 days.
+  * Multi-Factor Authentication (MFA) is compulsory across all company applications (Slack, Google Workspace, AWS, GitHub).
+- Data Classification: Corporate data is classified as Public, Internal, or Strictly Confidential. Proprietary source code, customer data, and employee PII are classified as Strictly Confidential and must never be copied, transferred, or stored on local drives outside approved encrypted repositories.
+
+4.3 SOCIAL MEDIA & EXTERNAL COMMUNICATIONS
+- Employees must not speak to media representatives or issue public statements on behalf of Apex Global Technologies Inc. without written clearance from the Marketing & Communications Director.
+- Employees sharing work-related milestones on personal social accounts (e.g., LinkedIn) must include a disclaimer stating: "Views expressed are my own and do not represent AGT."
+
+4.4 CONFLICT OF INTEREST & SECONDARY EMPLOYMENT
+- Full-time employees are prohibited from undertaking secondary employment, freelance work, or advisory roles with companies in competing industries without prior written permission from CEO Dr. Aris Thorne.
+- Personal relationships between supervisors and direct reports must be disclosed immediately to HR to prevent conflicts of interest in performance evaluations.
+
+
+--------------------------------------------------------------------------------
+CHAPTER 5: PERFORMANCE EVALUATIONS & PROMOTIONS
+--------------------------------------------------------------------------------
+
+5.1 REVIEW CYCLES
+- Bi-Annual Reviews: Performance evaluations occur twice yearly:
+  1. Mid-Year Review: July (Focuses on goal alignment and feedback).
+  2. End-of-Year Review: December (Determines performance ratings, merit increases, and bonus distributions).
+- Evaluation Framework: Employees are evaluated on a 1 to 5 scale across key competencies: Technical Mastery, Collaboration, Ownership, and Value Delivery.
+
+5.2 PROBATIONARY PERIOD
+- All new hires undergo a 90-day Probationary Period.
+- A formal 45-day check-in and 90-day final review are conducted by the immediate manager and HR.
+- Successful completion leads to permanent status confirmation; underperformance during this window may result in probation extension (up to 30 days) or immediate contract termination.
+
+
+--------------------------------------------------------------------------------
+CHAPTER 6: COMPENSATION, BENEFITS & EXPENSES
+--------------------------------------------------------------------------------
+
+6.1 PAYROLL & PAY SCHEDULES
+- Pay Period: Wages are paid on a monthly schedule on the last working day of each calendar month.
+- Direct Deposit: Salary payouts are processed electronically into designated employee bank accounts registered with Marcus Vance's finance team.
+
+6.2 HEALTH INSURANCE & WELLNESS PROGRAM
+- Health Coverage: Full-time staff are eligible for AGT's Comprehensive Health Plan starting on their first calendar day of the month following their hire date.
+- Wellness Allowance: Employees receive a $100 USD (or equivalent local currency) monthly stipend usable for gym memberships, mental health counseling apps, or ergonomic office supplies. Reimbursements must be submitted through the Finance Portal by the 20th of each month with valid receipts.
+
+6.3 TRAVEL & EXPENSE REIMBURSEMENT
+- Business Travel: Travel for business purposes must be pre-approved by CFO Marcus Vance.
+- Meal Allowances:
+  * Daily Meal Cap during domestic travel: $75 per day.
+  * Daily Meal Cap during international travel: $120 per day.
+- Submission Deadline: Expense reports submitted more than 30 days after the expense occurred will be automatically rejected.
+
+
+--------------------------------------------------------------------------------
+CHAPTER 7: SEPARATION & TERMINATION POLICIES
+--------------------------------------------------------------------------------
+
+7.1 VOLUNTARY RESIGNATION
+- Notice Periods:
+  * Individual Contributors: Required to provide 30 days' written notice.
+  * Managers, Directors, and Executives: Required to provide 60 days' written notice.
+- Resignation letters must be submitted simultaneously to the line manager and Sarah Jenkins (VP of HR).
+
+7.2 EXIT PROCESS & FINAL SETTLEMENT
+- Asset Return: Upon resignation or termination, all company property—including laptops, monitors, security keycards, and intellectual assets—must be returned to Kevin Zhang in HR by or before the employee's last working day.
+- Final Settlement (F&F): Full and final financial settlements, including earned unpaid salary and eligible accrued PTO payouts, will be processed within 14 calendar days following the final working date.
+
+
+--------------------------------------------------------------------------------
+QUICK REFERENCE CONTACT SUMMARY
+--------------------------------------------------------------------------------
+1. Executive Office (CEO): Dr. Aris Thorne | Email: aris.thorne@apexglobal.tech | Phone: Ext. 8001
+2. Engineering & Tech (CTO): Elena Rostova | Email: elena.rostova@apexglobal.tech | Phone: Ext. 7002
+3. Finance & Payroll (CFO): Marcus Vance | Email: marcus.vance@apexglobal.tech | Phone: Ext. 8010
+4. HR Operations (VP of HR): Sarah Jenkins | Email: sarah.jenkins@apexglobal.tech | Phone: +1 (555) 019-2831
+5. Leave & Attendance: Ananya Patel | Email: ananya.patel@apexglobal.tech | Phone: Ext. 4052
+6. Benefits & Health: David Miller | Email: david.miller@apexglobal.tech | Phone: Ext. 4053
+7. IT & Asset Logistics: Kevin Zhang | Email: kevin.zhang@apexglobal.tech | Phone: Ext. 4059
+8. Ethics Hotline: Misconduct Committee | Email: ethics@apexglobal.tech | Phone: Confidential Line

@@ -1,0 +1,135 @@
+2026-09-07 23:52:17,111 | INFO | hr_assistant.pipeline | Building the HR assistant
+2026-09-07 23:52:17,111 | INFO | hr_assistant.tracing | LangSmith tracing ENABLED - project 'hr_policy_assistant', traces at https://smith.langchain.com
+2026-09-07 23:52:19,429 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/exists "HTTP/1.1 200 OK"
+2026-09-07 23:52:19,432 | INFO | hr_assistant.pipeline | No Qdrant Cloud collection found, building one from scratch
+2026-09-07 23:52:19,432 | INFO | hr_assistant.document_loader | LOADING DOCUMENTS from 'data\hr_policy.txt'
+2026-09-07 23:52:19,434 | INFO | hr_assistant.document_loader | Loaded 1 document(s)
+2026-09-07 23:52:19,456 | INFO | hr_assistant.splitter | Split document(s) into 80 chunk(s)
+2026-09-07 23:52:19,457 | INFO | hr_assistant.vector_store | Embedding 80 chunk(s) and uploading to Qdrant collection 'hr_policy'...
+2026-09-07 23:52:19,457 | INFO | hr_assistant.embeedings | Initializing embedding LLM 'jina-embeddings-v2-base-en' 
+2026-09-07 23:52:21,170 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/exists "HTTP/1.1 200 OK"
+2026-09-07 23:52:23,424 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-07 23:52:23,831 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-07 23:52:31,614 | INFO | httpx | HTTP Request: PUT https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy "HTTP/1.1 200 OK"
+2026-09-07 23:52:41,547 | INFO | httpx | HTTP Request: PUT https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points?wait=true "HTTP/1.1 200 OK"
+2026-09-07 23:52:43,810 | INFO | httpx | HTTP Request: PUT https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points?wait=true "HTTP/1.1 200 OK"
+2026-09-07 23:52:46,985 | INFO | httpx | HTTP Request: PUT https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points?wait=true "HTTP/1.1 200 OK"
+2026-09-07 23:53:00,426 | INFO | httpx | HTTP Request: PUT https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points?wait=true "HTTP/1.1 200 OK"
+2026-09-07 23:53:02,440 | INFO | httpx | HTTP Request: PUT https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points?wait=true "HTTP/1.1 200 OK"
+2026-09-07 23:53:04,152 | INFO | httpx | HTTP Request: PUT https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points?wait=true "HTTP/1.1 200 OK"
+2026-09-07 23:53:05,919 | INFO | httpx | HTTP Request: PUT https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points?wait=true "HTTP/1.1 200 OK"
+2026-09-07 23:53:08,689 | INFO | httpx | HTTP Request: PUT https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points?wait=true "HTTP/1.1 200 OK"
+2026-09-07 23:53:12,678 | INFO | httpx | HTTP Request: PUT https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points?wait=true "HTTP/1.1 200 OK"
+2026-09-07 23:53:14,726 | INFO | httpx | HTTP Request: PUT https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points?wait=true "HTTP/1.1 200 OK"
+2026-09-07 23:53:16,318 | INFO | httpx | HTTP Request: PUT https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points?wait=true "HTTP/1.1 200 OK"
+2026-09-07 23:53:20,137 | INFO | httpx | HTTP Request: PUT https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points?wait=true "HTTP/1.1 200 OK"
+2026-09-07 23:53:29,677 | INFO | httpx | HTTP Request: PUT https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points?wait=true "HTTP/1.1 200 OK"
+2026-09-07 23:53:38,488 | INFO | httpx | HTTP Request: PUT https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points?wait=true "HTTP/1.1 200 OK"
+2026-09-07 23:53:44,941 | INFO | httpx | HTTP Request: PUT https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points?wait=true "HTTP/1.1 200 OK"
+2026-09-07 23:54:03,893 | INFO | httpx | HTTP Request: PUT https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points?wait=true "HTTP/1.1 200 OK"
+2026-09-07 23:54:19,136 | INFO | httpx | HTTP Request: PUT https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points?wait=true "HTTP/1.1 200 OK"
+2026-09-07 23:54:34,497 | INFO | httpx | HTTP Request: PUT https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points?wait=true "HTTP/1.1 200 OK"
+2026-09-07 23:54:51,209 | INFO | httpx | HTTP Request: PUT https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points?wait=true "HTTP/1.1 200 OK"
+2026-09-07 23:55:17,408 | INFO | httpx | HTTP Request: PUT https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points?wait=true "HTTP/1.1 200 OK"
+2026-09-07 23:55:17,410 | INFO | hr_assistant.vector_store | Uploaded to Qdrant collection 'hr_policy'
+2026-09-07 23:55:17,410 | INFO | hr_assistant.vector_store | Creating retriever with top_k = 3
+2026-09-07 23:55:17,415 | INFO | hr_assistant.llm | Intiliazing the LLM via portkey
+2026-09-07 23:55:17,416 | INFO | hr_assistant.gateway | Routing LLM calls through Portkey (provider=@hrpolicy)
+2026-09-07 23:55:19,608 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-09-07 23:55:19,622 | INFO | hr_assistant.agent | HR agent is ready
+2026-09-07 23:55:19,622 | INFO | hr_assistant.pipeline | HR assistant is ready to take the question
+2026-09-07 23:55:55,548 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-07 23:55:55,552 | INFO | hr_assistant.pipeline | User question: hii
+2026-09-07 23:56:00,824 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 23:56:06,959 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 23:56:06,991 | INFO | hr_assistant.pipeline | Final answer: Hello! 👋 How can I assist you today?
+2026-09-07 23:56:12,015 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 23:56:32,918 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-07 23:56:32,923 | INFO | hr_assistant.pipeline | User question: can you tell me company name ?
+2026-09-07 23:56:37,484 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 23:56:41,990 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 23:56:42,009 | INFO | hr_assistant.tools | search_hr_policy called with query : What is the company name?
+2026-09-07 23:56:54,596 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-07 23:56:54,604 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-07 23:57:00,127 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 23:57:00,135 | INFO | hr_assistant.pipeline | Final answer: The company is **Apex Global** (as indicated by the email domain apexglobal.tech).
+2026-09-07 23:57:04,428 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 23:57:21,438 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-07 23:57:21,446 | INFO | hr_assistant.pipeline | User question: CEO name
+2026-09-07 23:57:24,692 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 23:57:24,698 | WARNING | hr_assistant.guadrails | Input guard BLOCKED question: CEO name | reason: The user is requesting the name of the CEO, which is personal information about a specific employee. This falls under the policy’s definition of an other‑employee data request.
+2026-09-07 23:57:59,608 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-07 23:57:59,613 | INFO | hr_assistant.pipeline | User question: COMPENSATION, BENEFITS & EXPENSES
+2026-09-07 23:58:01,352 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 23:58:04,126 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 23:58:04,136 | INFO | hr_assistant.tools | search_hr_policy called with query : compensation benefits expenses policy
+2026-09-07 23:59:47,646 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-07 23:59:47,664 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-07 23:59:51,711 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-07 23:59:51,727 | INFO | hr_assistant.pipeline | Final answer: Here’s a concise overview of the **Compensation, Benefits & Expenses** policies as outlined in the HR handbook:
+
+---
+
+### 1. Payroll & Pay Schedules
+- **Pay Period:** Salary is paid **monthly** on the **last working day of each calendar month**.  
+- **Direct Deposit:** All payouts are processed electronically to the bank account you have on file with the Finance team (Marcus Vance’s team).
+
+---
+
+### 2. Health Insurance & Wellness Program
+- **Health Coverage:**  
+  - All **full‑time employees** become eligible for the company’s comprehensive health plan **starting on the first calendar day of the month following your hire date**.  
+- **Wellness Allowance:**  
+  - You receive a **$100 USD (or equivalent local currency) monthly stipend**.  
+  - This can be used for **gym memberships, mental‑health counseling apps, ergonomic office supplies, etc.**  
+  - **Reimbursement Process:** Submit a claim through the Finance Portal **by the 20th of each month**, attaching valid receipts.
+
+---
+
+### 3. General Expense Reimbursements
+- All expense reimbursements (including the wellness stipend) must be filed through the **Finance Portal** with appropriate documentation (receipts, approval if required).  
+- Claims submitted after the 20th of the month will be processed in the following month’s payroll cycle.
+
+---
+
+### How to Use This Information
+- **If you’re a new hire:** Expect your health coverage to start the month after you begin, and you’ll start receiving the wellness stipend from that same month.  
+- **If you’re filing a reimbursement:** Log into the Finance Portal, upload receipts, and ensure submission before the 20th to receive the reimbursement on time.  
+- **If you have payroll questions:** Remember that payday is the last working day of each month; verify your direct‑deposit details with the finance team to avoid delays.
+
+---
+
+If you need more detail on any specific part (e.g., additional benefits, expense categories, or the claim submission steps), just let me know!
+2026-09-07 23:59:54,916 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:00:49,966 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-08 00:00:49,970 | INFO | hr_assistant.pipeline | User question: QUICK REFERENCE CONTACT SUMMARY
+2026-09-08 00:00:53,287 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:00:58,816 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:00:58,830 | INFO | hr_assistant.tools | search_hr_policy called with query : contact summary quick reference
+2026-09-08 00:01:13,064 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:01:13,070 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:01:17,976 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:01:17,986 | INFO | hr_assistant.pipeline | Final answer: Here’s the Quick Reference Contact Summary for Apex Global:
+
+---
+
+### Executive Leadership
+| Role | Name | Email | Phone |
+|------|------|-------|-------|
+| **CEO** | Dr. Aris Thorne | aris.thorne@apexglobal.tech | Ext. 8001 |
+| **CTO** | Elena Rostova | elena.rostova@apexglobal.tech | Ext. 7002 |
+| **CFO** | Marcus Vance | marcus.vance@apexglobal.tech | Ext. 8010 |
+
+---
+
+### Human‑Resources Point‑of‑Contact Matrix
+| Area | HR Representative | Email |
+|------|-------------------|-------|
+| **Benefits & Health Insurance** | David Miller (Senior HR Specialist) | david.miller@apexglobal.tech |
+| **Leave Requests & Time‑Off Queries** | Ananya Patel (HR Coordinator) | ananya.patel@apexglobal.tech |
+| **Workplace Misconduct & Grievances** | Sarah Jenkins (VP of HR) | Confidential Hotline: ethics@apexglobal.tech |
+
+---
+
+Feel free to reach out to the appropriate contact for your needs. If you have any other questions, just let me know!
+2026-09-08 00:01:22,473 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"

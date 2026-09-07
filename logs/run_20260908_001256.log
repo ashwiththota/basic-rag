@@ -1,0 +1,550 @@
+2026-09-08 00:13:07,111 | INFO | hr_assistant.evaluation | Dataset 'hr-policy-qna' already exists, reusing it
+2026-09-08 00:13:08,747 | INFO | hr_assistant.pipeline | Building the HR assistant
+2026-09-08 00:13:08,747 | INFO | hr_assistant.tracing | LangSmith tracing ENABLED - project 'hr_policy_assistant', traces at https://smith.langchain.com
+2026-09-08 00:13:12,432 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/exists "HTTP/1.1 200 OK"
+2026-09-08 00:13:12,435 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-09-08 00:13:12,436 | INFO | hr_assistant.vector_store | Connecting to existing Qdrant collection 'hr_policy'
+2026-09-08 00:13:12,458 | INFO | hr_assistant.embeedings | Initializing embedding LLM 'jina-embeddings-v2-base-en' 
+2026-09-08 00:13:14,786 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-08 00:13:16,526 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-08 00:13:18,347 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy "HTTP/1.1 200 OK"
+2026-09-08 00:13:28,115 | INFO | hr_assistant.vector_store | Creating retriever with top_k = 3
+2026-09-08 00:13:28,119 | INFO | hr_assistant.llm | Intiliazing the LLM via portkey
+2026-09-08 00:13:28,119 | INFO | hr_assistant.gateway | Routing LLM calls through Portkey (provider=@hrpolicy)
+2026-09-08 00:13:29,882 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-09-08 00:13:29,895 | INFO | hr_assistant.agent | HR agent is ready
+2026-09-08 00:13:29,895 | INFO | hr_assistant.pipeline | HR assistant is ready to take the question
+2026-09-08 00:13:29,895 | INFO | hr_assistant.vector_store | Connecting to existing Qdrant collection 'hr_policy'
+2026-09-08 00:13:29,896 | INFO | hr_assistant.embeedings | Initializing embedding LLM 'jina-embeddings-v2-base-en' 
+2026-09-08 00:13:33,425 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-08 00:13:37,110 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy "HTTP/1.1 200 OK"
+2026-09-08 00:13:43,768 | INFO | hr_assistant.vector_store | Creating retriever with top_k = 3
+2026-09-08 00:13:43,770 | INFO | hr_assistant.evaluation | Running evaluation against dataset 'hr-policy-qna'
+2026-09-08 00:13:52,791 | INFO | hr_assistant.pipeline | User question: How many days of unused annual leave can be carried forward?
+2026-09-08 00:13:56,157 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:14:00,560 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:14:00,585 | INFO | hr_assistant.tools | search_hr_policy called with query : How many days of unused annual leave can be carried forward?
+2026-09-08 00:16:06,577 | ERROR | langsmith.evaluation._runner | Error running target function: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "D:\basic_rag\basicragenv\Lib\site-packages\requests\models.py", line 1116, in json
+    return complexjson.loads(self.text, **kwargs)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\json\__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\json\decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1999, in _forward
+    fn(*args, langsmith_extra=langsmith_extra)
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 781, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "D:\basic_rag\hr_assistant\evaluation.py", line 244, in target
+    answer = ask(agent, inputs["question"])
+  File "D:\basic_rag\hr_assistant\pipeline.py", line 82, in ask
+    response = agent.invoke({"messages": [{"role": "user", "content": question}]})
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 3913, in invoke
+    for chunk in self.stream(
+                 ~~~~~~~~~~~^
+        input,
+        ^^^^^^
+    ...<11 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ):
+    ^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 2967, in stream
+    for _ in runner.tick(
+             ~~~~~~~~~~~^
+        [t for t in loop.tasks.values() if not t.writes],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        schedule_task=loop.accept_push,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\pregel\_runner.py", line 207, in tick
+    run_with_retry(
+    ~~~~~~~~~~~~~~^
+        t,
+        ^^
+    ...<10 lines>...
+        },
+        ^^
+    )
+    ^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\pregel\_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 684, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 426, in invoke
+    ret = self.func(*args, **kwargs)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\prebuilt\tool_node.py", line 822, in _func
+    outputs = list(
+        executor.map(self._run_one, tool_calls, input_types, tool_runtimes)
+    )
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 639, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 311, in _result_or_cancel
+    return fut.result(timeout)
+           ~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 450, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_core\runnables\config.py", line 650, in _wrapped_fn
+    return contexts.pop().run(fn, *args)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\prebuilt\tool_node.py", line 1046, in _run_one
+    return self._execute_tool_sync(tool_request, input_type, config)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\prebuilt\tool_node.py", line 1006, in _execute_tool_sync
+    content = _handle_tool_error(e, flag=self._handle_tool_errors)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\prebuilt\tool_node.py", line 434, in _handle_tool_error
+    content = flag(e)  # type: ignore [assignment, call-arg]
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\prebuilt\tool_node.py", line 391, in _default_handle_tool_errors
+    raise e
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\prebuilt\tool_node.py", line 958, in _execute_tool_sync
+    response = tool.invoke(call_args, config)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_core\tools\base.py", line 738, in invoke
+    return self.run(tool_input, **kwargs)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_core\tools\base.py", line 1100, in run
+    raise error_to_raise
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_core\tools\base.py", line 1066, in run
+    response = context.run(self._run, *tool_args, **tool_kwargs)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_core\tools\structured.py", line 97, in _run
+    return self.func(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\basic_rag\hr_assistant\tools.py", line 16, in search_hr_policy
+    matching_chunks = retriever.invoke(question)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_core\retrievers.py", line 222, in invoke
+    result = self._get_relevant_documents(
+        input, run_manager=run_manager, **kwargs_
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_core\vectorstores\base.py", line 1045, in _get_relevant_documents
+    docs = self.vectorstore.similarity_search(query, **kwargs_)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_qdrant\qdrant.py", line 538, in similarity_search
+    results = self.similarity_search_with_score(
+        query,
+    ...<7 lines>...
+        **kwargs,
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_qdrant\qdrant.py", line 583, in similarity_search_with_score
+    query_dense_embedding = embeddings.embed_query(query)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_community\embeddings\jina.py", line 109, in embed_query
+    return self._embed([text])[0]
+           ~~~~~~~~~~~^^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_community\embeddings\jina.py", line 81, in _embed
+    ).json()
+      ~~~~^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\requests\models.py", line 1120, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+During task with name 'tools' and id '839efae6-2c24-57e1-c0e5-db69c5ac2aff'
+2026-09-08 00:16:10,928 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:16:10,959 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator groundedness_evaluator> on run 01a07d2f-14bc-79c2-bc10-f098c0f7f6ac: KeyError('answer')
+Traceback (most recent call last):
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1689, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+        run=run,
+        example=example,
+        evaluator_run_id=evaluator_run_id,
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 370, in evaluate_run
+    result = self.func(
+        run,
+        example,
+        langsmith_extra={"run_id": evaluator_run_id, "metadata": metadata},
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 781, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+  File "D:\basic_rag\hr_assistant\evaluation.py", line 264, in groundedness_evaluator
+    return groundedness_judge(outputs={"answer": outputs["answer"]}, context=outputs["context"])
+                                                 ~~~~~~~^^^^^^^^^^
+KeyError: 'answer'
+2026-09-08 00:16:10,965 | INFO | hr_assistant.pipeline | User question: How many days of paid annual leave do I get per year?
+2026-09-08 00:16:13,786 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:16:15,528 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:16:15,603 | INFO | hr_assistant.tools | search_hr_policy called with query : paid annual leave days per year
+2026-09-08 00:16:24,744 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:16:24,752 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:16:27,201 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:16:27,209 | INFO | hr_assistant.pipeline | Final answer: According to our HR policy, full‑time employees receive **18 days of paid annual leave (PTO) per calendar year** (accruing at 1.5 days each month).
+2026-09-08 00:16:29,351 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:16:33,653 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:16:36,214 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:16:38,261 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:16:38,272 | INFO | hr_assistant.pipeline | User question: What is the standard notice period for resignation?
+2026-09-08 00:16:42,895 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:16:45,917 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:16:45,924 | INFO | hr_assistant.tools | search_hr_policy called with query : standard notice period for resignation
+2026-09-08 00:16:53,119 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:16:53,124 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:16:55,988 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:16:55,992 | INFO | hr_assistant.pipeline | Final answer: The standard notice period for resignation is:
+
+- **Individual Contributors:** 30 days’ written notice  
+- **Managers, Directors, and Executives:** 60 days’ written notice  
+
+Resignation letters should be submitted to both your line manager and Sarah Jenkins (VP of HR).
+2026-09-08 00:16:58,538 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:18:52,613 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:18:55,284 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:18:56,510 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:18:56,522 | INFO | hr_assistant.pipeline | User question: Within how many days must reimbursement claims be submitted?
+2026-09-08 00:18:58,143 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:18:59,270 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:18:59,280 | INFO | hr_assistant.tools | search_hr_policy called with query : Within how many days must reimbursement claims be submitted?
+2026-09-08 00:19:06,112 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:19:06,117 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:19:08,179 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:19:08,187 | INFO | hr_assistant.pipeline | Final answer: According to the HR policy, expense (reimbursement) reports must be submitted **within 30 days** of the date the expense was incurred. Submissions made after 30 days will be automatically rejected.
+2026-09-08 00:19:09,203 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:19:22,904 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:19:24,772 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:19:26,201 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:19:26,213 | INFO | hr_assistant.pipeline | User question: What is the notice period during probation?
+2026-09-08 00:19:27,091 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:19:28,045 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:19:28,057 | INFO | hr_assistant.tools | search_hr_policy called with query : notice period during probation
+2026-09-08 00:19:30,410 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:19:30,416 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:19:31,425 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:19:31,434 | INFO | hr_assistant.pipeline | Final answer: I’m sorry, but I don’t have information on the specific notice period that applies during the probationary period.
+2026-09-08 00:19:31,937 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:19:34,327 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:19:35,315 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:19:36,647 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:19:36,657 | INFO | hr_assistant.pipeline | User question: How many public holidays does the company observe each year?
+2026-09-08 00:19:37,160 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:19:38,186 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:19:38,198 | INFO | hr_assistant.tools | search_hr_policy called with query : How many public holidays does the company observe each year?
+2026-09-08 00:20:05,600 | ERROR | langsmith.evaluation._runner | Error running target function: [WinError 10054] An existing connection was forcibly closed by the remote host
+Traceback (most recent call last):
+  File "D:\basic_rag\basicragenv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\basic_rag\basicragenv\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "D:\basic_rag\basicragenv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+        pool_request.request
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "D:\basic_rag\basicragenv\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\httpcore\_sync\connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\basic_rag\basicragenv\Lib\site-packages\qdrant_client\http\api_client.py", line 137, in send_inner
+    response = self._client.send(request)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1999, in _forward
+    fn(*args, langsmith_extra=langsmith_extra)
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 781, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "D:\basic_rag\hr_assistant\evaluation.py", line 244, in target
+    answer = ask(agent, inputs["question"])
+  File "D:\basic_rag\hr_assistant\pipeline.py", line 82, in ask
+    response = agent.invoke({"messages": [{"role": "user", "content": question}]})
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 3913, in invoke
+    for chunk in self.stream(
+                 ~~~~~~~~~~~^
+        input,
+        ^^^^^^
+    ...<11 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ):
+    ^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 2967, in stream
+    for _ in runner.tick(
+             ~~~~~~~~~~~^
+        [t for t in loop.tasks.values() if not t.writes],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        schedule_task=loop.accept_push,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\pregel\_runner.py", line 207, in tick
+    run_with_retry(
+    ~~~~~~~~~~~~~~^
+        t,
+        ^^
+    ...<10 lines>...
+        },
+        ^^
+    )
+    ^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\pregel\_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 684, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 426, in invoke
+    ret = self.func(*args, **kwargs)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\prebuilt\tool_node.py", line 822, in _func
+    outputs = list(
+        executor.map(self._run_one, tool_calls, input_types, tool_runtimes)
+    )
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 639, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 311, in _result_or_cancel
+    return fut.result(timeout)
+           ~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 450, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_core\runnables\config.py", line 650, in _wrapped_fn
+    return contexts.pop().run(fn, *args)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\prebuilt\tool_node.py", line 1046, in _run_one
+    return self._execute_tool_sync(tool_request, input_type, config)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\prebuilt\tool_node.py", line 1006, in _execute_tool_sync
+    content = _handle_tool_error(e, flag=self._handle_tool_errors)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\prebuilt\tool_node.py", line 434, in _handle_tool_error
+    content = flag(e)  # type: ignore [assignment, call-arg]
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\prebuilt\tool_node.py", line 391, in _default_handle_tool_errors
+    raise e
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\prebuilt\tool_node.py", line 958, in _execute_tool_sync
+    response = tool.invoke(call_args, config)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_core\tools\base.py", line 738, in invoke
+    return self.run(tool_input, **kwargs)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_core\tools\base.py", line 1100, in run
+    raise error_to_raise
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_core\tools\base.py", line 1066, in run
+    response = context.run(self._run, *tool_args, **tool_kwargs)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_core\tools\structured.py", line 97, in _run
+    return self.func(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\basic_rag\hr_assistant\tools.py", line 16, in search_hr_policy
+    matching_chunks = retriever.invoke(question)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_core\retrievers.py", line 222, in invoke
+    result = self._get_relevant_documents(
+        input, run_manager=run_manager, **kwargs_
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_core\vectorstores\base.py", line 1045, in _get_relevant_documents
+    docs = self.vectorstore.similarity_search(query, **kwargs_)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_qdrant\qdrant.py", line 538, in similarity_search
+    results = self.similarity_search_with_score(
+        query,
+    ...<7 lines>...
+        **kwargs,
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_qdrant\qdrant.py", line 584, in similarity_search_with_score
+    results = self.client.query_points(
+              ~~~~~~~~~~~~~~~~~~~~~~~~^
+        query=query_dense_embedding,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        using=self.vector_name,
+        ^^^^^^^^^^^^^^^^^^^^^^^
+        **query_options,
+        ^^^^^^^^^^^^^^^^
+    ).points
+    ^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\qdrant_client\qdrant_client.py", line 423, in query_points
+    return self._client.query_points(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        collection_name=collection_name,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<14 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\qdrant_client\qdrant_remote.py", line 585, in query_points
+    query_result = self.http.search_api.query_points(
+        collection_name=collection_name,
+    ...<2 lines>...
+        query_request=query_request,
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\qdrant_client\http\api\search_api.py", line 341, in query_points
+    return self._build_for_query_points(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        collection_name=collection_name,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        query_request=query_request,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\qdrant_client\http\api\search_api.py", line 113, in _build_for_query_points
+    return self.api_client.request(
+           ~~~~~~~~~~~~~~~~~~~~~~~^
+        type_=m.InlineResponse20022,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        content=body,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\qdrant_client\http\api_client.py", line 98, in request
+    return self.send(request, type_)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\qdrant_client\http\api_client.py", line 115, in send
+    response = self.middleware(request, self.send_inner)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\qdrant_client\http\api_client.py", line 152, in new_middleware
+    return middleware(request, inner_send)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\qdrant_client\context_headers.py", line 39, in rest_headers_middleware
+    return call_next(request)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\qdrant_client\http\api_client.py", line 150, in inner_send
+    return current_middleware(request, call_next)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\qdrant_client\http\api_client.py", line 253, in __call__
+    return call_next(request)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\qdrant_client\http\api_client.py", line 139, in send_inner
+    raise ResponseHandlingException(e)
+qdrant_client.http.exceptions.ResponseHandlingException: [WinError 10054] An existing connection was forcibly closed by the remote host
+During task with name 'tools' and id 'c397fae3-8be6-a440-b76b-060a7fc2f306'
+2026-09-08 00:20:07,146 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:20:07,157 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator groundedness_evaluator> on run 01a07d34-5490-7cb1-b07d-9ebdccc97443: KeyError('answer')
+Traceback (most recent call last):
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1689, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+        run=run,
+        example=example,
+        evaluator_run_id=evaluator_run_id,
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 370, in evaluate_run
+    result = self.func(
+        run,
+        example,
+        langsmith_extra={"run_id": evaluator_run_id, "metadata": metadata},
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 781, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+  File "D:\basic_rag\hr_assistant\evaluation.py", line 264, in groundedness_evaluator
+    return groundedness_judge(outputs={"answer": outputs["answer"]}, context=outputs["context"])
+                                                 ~~~~~~~^^^^^^^^^^
+KeyError: 'answer'
+2026-09-08 00:20:07,160 | INFO | hr_assistant.pipeline | User question: How many paid sick days do I get per year?
+2026-09-08 00:20:08,328 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:20:09,477 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:20:09,489 | INFO | hr_assistant.tools | search_hr_policy called with query : paid sick days per year
+2026-09-08 00:20:14,945 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:20:14,950 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:20:16,481 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:20:16,490 | INFO | hr_assistant.pipeline | Final answer: You’re entitled to **10 paid sick days per calendar year** as a full‑time employee. If you join part‑way through the year, the allocation is pro‑rated based on your start date.
+2026-09-08 00:20:17,815 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:20:23,543 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:20:25,598 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:20:26,844 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:20:26,859 | INFO | hr_assistant.pipeline | User question: How many days per week can I work from home?
+2026-09-08 00:20:28,770 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:20:29,794 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:20:29,806 | INFO | hr_assistant.tools | search_hr_policy called with query : work from home days per week
+2026-09-08 00:20:41,570 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:20:41,576 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:20:42,697 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:20:42,704 | INFO | hr_assistant.pipeline | Final answer: According to the HR policy, hybrid‑work employees are required to be in the office **at least three days each week** (usually Tuesday, Wednesday, and Thursday).  
+That means they can work from home for **up to two days per week**.  
+
+(If you’re classified as a fully remote employee, you may work from home every day, provided you meet the connectivity and availability requirements.)
+2026-09-08 00:20:44,438 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:20:51,093 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:20:52,425 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:20:53,859 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:20:53,878 | INFO | hr_assistant.pipeline | User question: How long is the probation period?
+2026-09-08 00:20:55,192 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:20:56,112 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:20:56,126 | INFO | hr_assistant.tools | search_hr_policy called with query : probation period length
+2026-09-08 00:20:58,159 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:20:58,165 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:20:59,081 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:20:59,100 | INFO | hr_assistant.pipeline | Final answer: The standard probation period for all new hires is **90 days**. During this time you’ll have a formal 45‑day check‑in and a final review at the end of the 90 days. Successful completion of the probationary period results in confirmation of permanent employee status.
+2026-09-08 00:20:59,798 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:21:08,677 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:21:10,659 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:21:11,985 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:21:12,000 | INFO | hr_assistant.pipeline | User question: Within how many days is full and final settlement processed after the last working day?
+2026-09-08 00:21:13,316 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:21:14,595 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:21:14,605 | INFO | hr_assistant.tools | search_hr_policy called with query : full and final settlement processing days after last working day
+2026-09-08 00:21:20,587 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:21:20,594 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:21:21,775 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:21:21,784 | INFO | hr_assistant.pipeline | Final answer: The full and final (F&F) settlement is processed **within 14 calendar days** after your last working day.
+2026-09-08 00:21:23,043 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:21:25,803 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:21:26,627 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:21:27,959 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"

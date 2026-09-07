@@ -46,25 +46,142 @@ logger = get_logger(__name__)
 DATASET_NAME = "hr-policy-qna"
 
 TEST_CASES = [
-    {"question": "How many days of paid annual leave do I get per year?",
-    "answer": "20 days"},
-    {"question": "How many days of unused annual leave can be carried forward?",
-      "answer": "Up to 5 days"},
-    {"question": "How many paid sick days do I get per year?", 
-     "answer": "10 days"},
-    {"question": "How many days per week can I work from home?", 
-     "answer": "Up to 2 days, with manager approval"},
-    {"question": "How long is the probation period?",
-    "answer": "3 months"},
-    {"question": "What is the notice period during probation?", "answer": "15 days"},
-    {"question": "What is the standard notice period for resignation?",
-    "answer": "30 days"},
-    {"question": "Within how many days must reimbursement claims be submitted?",
-    "answer": "30 days of the expense"},
-    {"question": "How many public holidays does the company observe each year?", 
-     "answer": "12"},
-    {"question": "Within how many days is full and final settlement processed after the last working day?", 
-     "answer": "45 days"},
+    # --- CHAPTER 1 & 2: LEADERSHIP & WORK SCHEDULES ---
+    {
+        "question": "Who is the CEO of Apex Global Technologies, and when does he hold open office hours?",
+        "answer": "The CEO is Dr. Aris Thorne, and he holds weekly open-office hours on Thursdays from 3:00 PM to 4:00 PM EST.",
+        "reference_doc": "Document 1, Chapter 1.2"
+    },
+    {
+        "question": "What are the core hours during which all full-time employees must be available?",
+        "answer": "Core Hours are from 10:00 AM to 4:00 PM local time.",
+        "reference_doc": "Document 1, Chapter 2.1"
+    },
+    {
+        "question": "How many days per week are hybrid employees required to work in the office?",
+        "answer": "Hybrid employees are required to work in-office a minimum of 3 designated days per week.",
+        "reference_doc": "Document 1, Chapter 2.2"
+    },
+    {
+        "question": "What internet speed is required for fully remote employees?",
+        "answer": "A minimum download speed of 50 Mbps.",
+        "reference_doc": "Document 1, Chapter 2.2"
+    },
+    {
+        "question": "How many unexcused tardy incidents trigger an informal verbal warning from HR?",
+        "answer": "3 unexcused tardy incidents within a 30-day rolling window.",
+        "reference_doc": "Document 1, Chapter 2.3"
+    },
+
+    # --- CHAPTER 3: LEAVE POLICIES ---
+    {
+        "question": "How many days of Paid Time Off (PTO) do full-time employees accrue per year?",
+        "answer": "18 days per calendar year (accrued at 1.5 days per completed calendar month).",
+        "reference_doc": "Document 1, Chapter 3.1"
+    },
+    {
+        "question": "How many unused PTO days can be carried forward into the next year, and by what date must they be used?",
+        "answer": "A maximum of 5 unused PTO days can be carried forward, and they must be used by March 31 of the new year.",
+        "reference_doc": "Document 1, Chapter 3.1"
+    },
+    {
+        "question": "How many paid sick days do employees get per year, and when is a medical certificate required?",
+        "answer": "Employees receive 10 paid sick days per year. A doctor's medical certificate is required for sick leave extending to 3 or more consecutive business days.",
+        "reference_doc": "Document 1, Chapter 3.2"
+    },
+    {
+        "question": "How long is paid maternity leave, and how far in advance must it be requested?",
+        "answer": "26 weeks of paid maternity leave, which must be requested 60 days prior to the expected delivery date.",
+        "reference_doc": "Document 1, Chapter 3.3"
+    },
+    {
+        "question": "How many days of paid bereavement leave are allowed for immediate family members?",
+        "answer": "Up to 5 consecutive paid working days.",
+        "reference_doc": "Document 1, Chapter 3.4"
+    },
+
+    # --- CHAPTER 4 & 5: CODE OF CONDUCT & PERFORMANCE ---
+    {
+        "question": "What are the rules for corporate password length and password updates?",
+        "answer": "Passwords must be a minimum of 14 characters long and updated every 90 days.",
+        "reference_doc": "Document 1, Chapter 4.2"
+    },
+    {
+        "question": "How long is the probationary period for new hires, and when are formal reviews conducted?",
+        "answer": "The probationary period is 90 days. Formal reviews are conducted at 45 days and 90 days.",
+        "reference_doc": "Document 1, Chapter 5.2"
+    },
+    {
+        "question": "When do performance reviews take place each year?",
+        "answer": "Bi-annually: the Mid-Year Review occurs in July and the End-of-Year Review occurs in December.",
+        "reference_doc": "Document 1, Chapter 5.1"
+    },
+
+    # --- CHAPTER 6 & 7: EXPENSES & RESIGNATION ---
+    {
+        "question": "What is the monthly wellness allowance stipend, and when must reimbursement receipts be submitted?",
+        "answer": "$100 USD (or equivalent local currency) per month, with receipts submitted by the 20th of each month.",
+        "reference_doc": "Document 1, Chapter 6.2"
+    },
+    {
+        "question": "What are the daily meal allowance caps for domestic and international business travel?",
+        "answer": "$75 per day for domestic travel and $120 per day for international travel.",
+        "reference_doc": "Document 1, Chapter 6.3"
+    },
+    {
+        "question": "Within how many days after an expense occurs must an expense report be submitted before it is rejected?",
+        "answer": "Expense reports submitted more than 30 days after the expense occurred will be automatically rejected.",
+        "reference_doc": "Document 1, Chapter 6.3"
+    },
+    {
+        "question": "What is the notice period for voluntary resignation for individual contributors versus managers and executives?",
+        "answer": "Individual contributors must give 30 days' written notice; managers, directors, and executives must give 60 days' written notice.",
+        "reference_doc": "Document 1, Chapter 7.1"
+    },
+    {
+        "question": "Within how many days after the last working day is the full and final settlement processed?",
+        "answer": "Within 14 calendar days.",
+        "reference_doc": "Document 1, Chapter 7.2"
+    },
+
+    # --- DOCUMENT 2: IT SECURITY & DATA GOVERNANCE ---
+    {
+        "question": "Within how many hours must a lost or stolen device be reported to IT Security?",
+        "answer": "Within 2 hours of discovery.",
+        "reference_doc": "Document 2, Section 1.2"
+    },
+    {
+        "question": "What is the policy regarding storing Tier 4 data on local developer drives?",
+        "answer": "Tier 4 data must never be downloaded onto local drives. Storing it locally is a Tier 1 Security Violation that can lead to suspension.",
+        "reference_doc": "Document 2, Section 3.1"
+    },
+    {
+        "question": "What is the required notification timeframe for a Severity 1 security breach?",
+        "answer": "The CEO must be notified within 15 minutes, and public/customer disclosure must be initiated within 72 hours.",
+        "reference_doc": "Document 2, Section 4.1"
+    },
+
+    # --- CROSS-DOCUMENT / MULTI-HOP TEST CASES ---
+    {
+        "question": "Who is responsible for handling IT hardware asset returns when an employee leaves the company, and what is their contact email?",
+        "answer": "Kevin Zhang (HR Systems Admin / IT Systems Admin), email: kevin.zhang@apexglobal.tech.",
+        "reference_doc": "Document 1, Chapter 7.2 & Document 2, Quick Contact Reference"
+    },
+    {
+        "question": "Who must approve business travel expenses, and who approves overtime work for non-exempt employees?",
+        "answer": "Marcus Vance (CFO) must approve both business travel and overtime work in writing.",
+        "reference_doc": "Document 1, Chapter 2.3 & Chapter 6.3"
+    },
+    {
+        "question": "Who should an employee contact if they experience workplace misconduct, and who investigates it?",
+        "answer": "Report to Sarah Jenkins (VP of HR) or via ethics@apexglobal.tech. The investigation is conducted by a committee consisting of Sarah Jenkins and Dr. Aris Thorne (CEO).",
+        "reference_doc": "Document 1, Chapter 1.3 & Chapter 4.1"
+    },
+    {
+        "question": "Can I use public AI tools like free ChatGPT for company code or customer data?",
+        "answer": "No. Employees are strictly forbidden from pasting Tier 3 or Tier 4 data, including source code and customer records, into public LLM tools.",
+        "reference_doc": "Document 2, Section 3.2"
+    }
 ]
 
 JUDGE_MODEL_NAME = "openai/gpt-oss-20b"

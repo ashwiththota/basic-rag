@@ -1,0 +1,703 @@
+2026-09-08 00:32:21,089 | INFO | hr_assistant.evaluation | Creating dataset 'hr-policy-qna' with 25 example(s)
+2026-09-08 00:32:25,285 | INFO | hr_assistant.pipeline | Building the HR assistant
+2026-09-08 00:32:25,286 | INFO | hr_assistant.tracing | LangSmith tracing ENABLED - project 'hr_policy_assistant', traces at https://smith.langchain.com
+2026-09-08 00:32:28,465 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-08 00:32:28,465 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/exists "HTTP/1.1 200 OK"
+2026-09-08 00:32:28,469 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-09-08 00:32:28,489 | INFO | hr_assistant.vector_store | Connecting to existing Qdrant collection 'hr_policy'
+2026-09-08 00:32:28,490 | INFO | hr_assistant.embeedings | Initializing embedding LLM 'jina-embeddings-v2-base-en' 
+2026-09-08 00:32:29,684 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy "HTTP/1.1 200 OK"
+2026-09-08 00:32:29,992 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-08 00:32:31,429 | INFO | hr_assistant.vector_store | Creating retriever with top_k = 3
+2026-09-08 00:32:31,431 | INFO | hr_assistant.llm | Intiliazing the LLM via portkey
+2026-09-08 00:32:31,431 | INFO | hr_assistant.gateway | Routing LLM calls through Portkey (provider=@hrpolicy)
+2026-09-08 00:32:32,752 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-09-08 00:32:32,759 | INFO | hr_assistant.agent | HR agent is ready
+2026-09-08 00:32:32,759 | INFO | hr_assistant.pipeline | HR assistant is ready to take the question
+2026-09-08 00:32:32,759 | INFO | hr_assistant.vector_store | Connecting to existing Qdrant collection 'hr_policy'
+2026-09-08 00:32:32,759 | INFO | hr_assistant.embeedings | Initializing embedding LLM 'jina-embeddings-v2-base-en' 
+2026-09-08 00:32:34,036 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy "HTTP/1.1 200 OK"
+2026-09-08 00:32:34,335 | INFO | httpx | HTTP Request: GET https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-08 00:32:36,051 | INFO | hr_assistant.vector_store | Creating retriever with top_k = 3
+2026-09-08 00:32:36,053 | INFO | hr_assistant.evaluation | Running evaluation against dataset 'hr-policy-qna'
+2026-09-08 00:32:39,338 | INFO | hr_assistant.pipeline | User question: What is the policy regarding storing Tier 4 data on local developer drives?
+2026-09-08 00:32:41,062 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:32:43,879 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:32:43,892 | INFO | hr_assistant.tools | search_hr_policy called with query : policy regarding storing Tier 4 data on local developer drives
+2026-09-08 00:32:47,039 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:32:47,044 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:32:48,705 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:32:48,716 | INFO | hr_assistant.pipeline | Final answer: According to the company’s Information‑Security & Acceptable‑Use policy, **Tier 4 data (which falls under the “Strictly Confidential” classification)** may **not be copied, transferred, or stored on a developer’s local drive** unless it is saved within an approved, encrypted repository.
+
+Key points from the policy:
+
+- **Strictly Confidential data** includes proprietary source code, customer data, and employee PII.  
+- This data **must never be stored on local drives** that are not part of an approved, encrypted storage solution.  
+- All development work and data handling must be performed on **company‑issued devices** that meet the encryption and security requirements.  
+- If a developer needs to work with Tier 4 data locally, they must obtain **written authorization from the CTO (Elena Rostova)** and use a device that meets the encryption standards.
+
+So, under normal circumstances, storing Tier 4 data on a local developer drive is prohibited. If you think an exception is required, you’ll need to follow the formal request process and get the necessary CTO approval.
+2026-09-08 00:32:49,926 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:32:51,659 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:32:53,174 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:32:54,409 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:32:54,417 | INFO | hr_assistant.pipeline | User question: How many days of paid bereavement leave are allowed for immediate family members?
+2026-09-08 00:32:54,819 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:32:55,632 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:32:55,640 | INFO | hr_assistant.tools | search_hr_policy called with query : paid bereavement leave immediate family days
+2026-09-08 00:32:57,681 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:32:57,685 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:32:58,501 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:32:58,507 | INFO | hr_assistant.pipeline | Final answer: Employees are entitled to **up to 5 consecutive paid working days** of bereavement leave for the death of an immediate family member (spouse, child, parent, or sibling).
+2026-09-08 00:32:58,908 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:33:00,958 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:33:01,711 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:33:03,076 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:33:03,087 | INFO | hr_assistant.pipeline | User question: Who should an employee contact if they experience workplace misconduct, and who investigates it?
+2026-09-08 00:33:03,415 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:33:04,541 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:33:04,549 | INFO | hr_assistant.tools | search_hr_policy called with query : who to contact for workplace misconduct and who investigates
+2026-09-08 00:33:07,989 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:33:07,990 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:33:09,161 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:33:09,167 | INFO | hr_assistant.pipeline | Final answer: **Who to contact:**  
+If an employee experiences workplace misconduct, they should reach out to the **Workplace Misconduct & Grievances** point of contact:
+
+- **Sarah Jenkins – Vice President of HR**  
+- **Confidential Hotline:** `ethics@apexglobal.tech`
+
+**Who investigates:**  
+Upon receiving a complaint, **HR** begins an investigation within 48 hours. The findings are then reviewed by a designated **investigative committee** composed of:
+
+- **Sarah Jenkins (VP of HR)**  
+- **Dr. Aris Thorne (CEO)**  
+
+The committee determines any disciplinary action, which can include termination without notice for serious violations.
+2026-09-08 00:33:16,563 | INFO | groq._base_client | Retrying request to /openai/v1/chat/completions in 0.451281 seconds
+2026-09-08 00:33:18,996 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:33:28,760 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:33:32,423 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:33:34,304 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:33:34,312 | INFO | hr_assistant.pipeline | User question: Can I use public AI tools like free ChatGPT for company code or customer data?
+2026-09-08 00:33:35,012 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:33:35,483 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:33:35,496 | INFO | hr_assistant.tools | search_hr_policy called with query : use of public AI tools like free ChatGPT for company code or customer data policy
+2026-09-08 00:33:37,572 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:33:37,576 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:33:38,786 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:33:38,793 | INFO | hr_assistant.pipeline | Final answer: I’m sorry, but you can’t use public AI services such as the free version of ChatGPT to process or store company source code or any customer data.  
+
+Our policy classifies proprietary code, customer information and employee PII as **Strictly Confidential** and requires that it never be copied, transferred, or stored outside approved, encrypted repositories. Using an external, public AI tool would place that confidential data on a third‑party platform that is not an approved repository, which violates the “Information Security & Acceptable Use” rules.  
+
+If you need AI assistance, please use the company‑approved internal tools that have been vetted for security and compliance.
+2026-09-08 00:33:39,386 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:33:41,074 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:33:42,104 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:33:43,051 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:33:43,057 | INFO | hr_assistant.pipeline | User question: Who is the CEO of Apex Global Technologies, and when does he hold open office hours?
+2026-09-08 00:33:44,714 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:33:44,719 | WARNING | hr_assistant.guadrails | Input guard BLOCKED question: Who is the CEO of Apex Global Technologies, and when does he hold open office hours? | reason: The user is requesting personal information about a specific employee (the CEO), which falls under the policy’s definition of an other-employee data request.
+2026-09-08 00:33:45,789 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:33:46,771 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:33:48,018 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:33:48,026 | INFO | hr_assistant.pipeline | User question: Within how many days after the last working day is the full and final settlement processed?
+2026-09-08 00:33:48,500 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:33:49,364 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:33:49,372 | INFO | hr_assistant.tools | search_hr_policy called with query : full and final settlement processed within how many days after the last working day
+2026-09-08 00:33:51,531 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:33:51,536 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:33:52,340 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:33:52,347 | INFO | hr_assistant.pipeline | Final answer: The full and final settlement (including any unpaid salary and eligible accrued PTO payouts) is processed **within 14 calendar days** after your last working day.
+2026-09-08 00:33:52,722 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:33:59,203 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:34:00,441 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:34:01,272 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:34:01,279 | INFO | hr_assistant.pipeline | User question: What is the required notification timeframe for a Severity 1 security breach?
+2026-09-08 00:34:03,050 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:34:04,169 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:34:04,178 | INFO | hr_assistant.tools | search_hr_policy called with query : required notification timeframe for a Severity 1 security breach
+2026-09-08 00:34:06,908 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:34:06,913 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:34:07,752 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:34:07,758 | INFO | hr_assistant.pipeline | Final answer: I’m sorry, but I don’t have that information.
+2026-09-08 00:34:08,333 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:34:09,773 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:34:10,558 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:34:12,059 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:34:12,066 | INFO | hr_assistant.pipeline | User question: How long is the probationary period for new hires, and when are formal reviews conducted?
+2026-09-08 00:34:12,687 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:34:13,684 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:34:13,698 | INFO | hr_assistant.tools | search_hr_policy called with query : probationary period for new hires and when formal reviews are conducted
+2026-09-08 00:34:15,505 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:34:15,510 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:34:16,308 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:34:16,316 | INFO | hr_assistant.pipeline | Final answer: The probationary period for all new hires is **90 days**.
+
+During that time two formal reviews are scheduled:
+
+| Review | Timing | Who conducts it |
+|--------|--------|-----------------|
+| **Check‑in review** | **Day 45** (mid‑point of the probation) | Immediate manager together with HR |
+| **Final review** | **Day 90** (end of the probation) | Immediate manager together with HR |
+
+If performance is not satisfactory, the probation can be extended (up to an additional 30 days) or the employment may be terminated, per the policy.
+2026-09-08 00:34:16,884 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:34:18,208 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:34:18,887 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:34:19,094 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-08 00:34:19,113 | INFO | openai._base_client | Retrying request to /chat/completions in 5.000000 seconds
+2026-09-08 00:34:24,704 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-08 00:34:24,705 | INFO | openai._base_client | Retrying request to /chat/completions in 3.000000 seconds
+2026-09-08 00:34:28,811 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:34:28,819 | INFO | hr_assistant.pipeline | User question: How long is paid maternity leave, and how far in advance must it be requested?
+2026-09-08 00:34:30,069 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:34:31,292 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:34:31,301 | INFO | hr_assistant.tools | search_hr_policy called with query : paid maternity leave duration and advance request requirement
+2026-09-08 00:34:38,940 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:34:38,945 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:34:39,871 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:34:39,878 | INFO | hr_assistant.pipeline | Final answer: Paid maternity leave is **26 weeks** of pay for eligible female employees (those who have completed at least 12 months of continuous service).  
+
+The request for maternity leave must be **submitted at least 60 days before the expected delivery date**.
+2026-09-08 00:34:40,584 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:34:42,082 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:34:43,050 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:34:47,604 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:34:47,614 | INFO | hr_assistant.pipeline | User question: How many days per week are hybrid employees required to work in the office?
+2026-09-08 00:34:48,214 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:34:49,135 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:34:49,140 | INFO | hr_assistant.tools | search_hr_policy called with query : hybrid employees required to work in the office days per week
+2026-09-08 00:35:00,542 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:35:00,546 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:35:04,500 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:35:04,508 | INFO | hr_assistant.pipeline | Final answer: Hybrid employees are required to work in the office **a minimum of three days per week** (typically Tuesday, Wednesday, and Thursday).
+2026-09-08 00:35:08,815 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:35:19,050 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:35:24,651 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:35:27,211 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:35:27,221 | INFO | hr_assistant.pipeline | User question: What are the rules for corporate password length and password updates?
+2026-09-08 00:35:38,413 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:35:43,111 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:35:43,119 | INFO | hr_assistant.tools | search_hr_policy called with query : password length and password updates policy
+2026-09-08 00:35:51,852 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:35:51,857 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:35:57,775 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:35:57,781 | INFO | hr_assistant.pipeline | Final answer: **Corporate Password Policy**
+
+- **Minimum length:** 14 characters.  
+- **Complexity requirement:** Passwords must include a mix of letters (both uppercase and lowercase), numbers, and symbols.  
+- **Update frequency:** Passwords must be changed **every 90 days**.  
+
+These rules are part of the company’s Information Security & Acceptable Use policy.
+2026-09-08 00:36:02,422 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:36:10,265 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:36:16,174 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:36:18,002 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:36:18,019 | INFO | hr_assistant.pipeline | User question: How many unexcused tardy incidents trigger an informal verbal warning from HR?
+2026-09-08 00:36:22,111 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:36:24,235 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:36:24,244 | INFO | hr_assistant.tools | search_hr_policy called with query : unexcused tardy incidents informal verbal warning
+2026-09-08 00:37:36,493 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:37:36,498 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:37:39,549 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:37:39,557 | INFO | hr_assistant.pipeline | Final answer: According to the HR policy, **three unexcused tardy incidents within a 30‑day rolling window** will trigger an informal verbal warning from HR.
+2026-09-08 00:37:42,047 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:37:44,957 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:37:47,228 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:37:48,404 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:37:48,412 | INFO | hr_assistant.pipeline | User question: When do performance reviews take place each year?
+2026-09-08 00:37:50,159 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:37:51,190 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:37:51,197 | INFO | hr_assistant.tools | search_hr_policy called with query : When do performance reviews take place each year?
+2026-09-08 00:37:54,153 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:37:54,157 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:37:55,108 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:37:55,114 | INFO | hr_assistant.pipeline | Final answer: Performance reviews are conducted **bi‑annually**:
+
+| Review | Month | Focus |
+|--------|-------|-------|
+| **Mid‑Year Review** | **July** | Goal alignment and feedback |
+| **End‑of‑Year Review** | **December** | Performance ratings, merit increases, and bonus distribution |
+
+These are the scheduled times each year for performance evaluations.
+2026-09-08 00:37:55,842 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:03,505 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:38:05,671 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:06,850 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:06,858 | INFO | hr_assistant.pipeline | User question: How many days of Paid Time Off (PTO) do full-time employees accrue per year?
+2026-09-08 00:38:08,077 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:08,977 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:08,982 | INFO | hr_assistant.tools | search_hr_policy called with query : Paid Time Off accrual full-time employees per year
+2026-09-08 00:38:10,728 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:38:10,733 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:38:11,590 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:11,598 | INFO | hr_assistant.pipeline | Final answer: Full‑time employees accrue **18 days of Paid Time Off (PTO) each calendar year** (earned at a rate of 1.5 days per completed month of service).
+2026-09-08 00:38:12,067 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:13,468 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:38:14,602 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:15,891 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:15,895 | INFO | hr_assistant.pipeline | User question: How many unused PTO days can be carried forward into the next year, and by what date must they be used?
+2026-09-08 00:38:16,294 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:16,866 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:16,871 | INFO | hr_assistant.tools | search_hr_policy called with query : unused PTO days carried forward next year date must be used
+2026-09-08 00:38:18,264 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:38:18,273 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:38:18,979 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:18,991 | INFO | hr_assistant.pipeline | Final answer: According to our HR policy:
+
+- **Maximum PTO that can be carried forward:** 5 unused PTO days.  
+- **Deadline for using the carried‑forward days:** they must be taken by **March 31** of the following calendar year. If they are not used by that date, they lapse and are not paid out.
+2026-09-08 00:38:19,697 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:21,125 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:38:21,925 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:23,031 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:23,041 | INFO | hr_assistant.pipeline | User question: Within how many days after an expense occurs must an expense report be submitted before it is rejected?
+2026-09-08 00:38:23,684 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:24,183 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:24,188 | INFO | hr_assistant.tools | search_hr_policy called with query : how many days after an expense occurs must an expense report be submitted before it is rejected
+2026-09-08 00:38:25,467 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:38:25,469 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:38:26,165 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:26,167 | INFO | hr_assistant.pipeline | Final answer: According to the HR policy, expense reports must be submitted **within 30 days** of the expense. Any report submitted more than 30 days after the expense will be automatically rejected.
+2026-09-08 00:38:26,524 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:27,983 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:38:28,833 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:29,753 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:29,762 | INFO | hr_assistant.pipeline | User question: Within how many hours must a lost or stolen device be reported to IT Security?
+2026-09-08 00:38:30,578 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:31,304 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:31,308 | INFO | hr_assistant.tools | search_hr_policy called with query : lost or stolen device reporting timeframe hours IT Security
+2026-09-08 00:38:34,417 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:38:34,422 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:38:35,520 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:35,528 | INFO | hr_assistant.tools | search_hr_policy called with query : within how many hours must a lost or stolen device be reported
+2026-09-08 00:38:37,307 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:38:37,311 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:38:37,936 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:37,938 | INFO | hr_assistant.pipeline | Final answer: I’m sorry, but I don’t have that information.
+2026-09-08 00:38:38,886 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:40,452 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:38:41,292 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:42,255 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:42,266 | INFO | hr_assistant.pipeline | User question: What is the monthly wellness allowance stipend, and when must reimbursement receipts be submitted?
+2026-09-08 00:38:42,737 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:43,445 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:43,452 | INFO | hr_assistant.tools | search_hr_policy called with query : monthly wellness allowance stipend and reimbursement receipts submission deadline
+2026-09-08 00:38:52,821 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:38:52,827 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:38:55,513 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:55,519 | INFO | hr_assistant.pipeline | Final answer: The policy states that the wellness‑allowance stipend is **$100 USD (or the equivalent amount in local currency) per month**.  
+
+To be reimbursed, you must submit a valid receipt through the Finance Portal **by the 20th of each month**. If the receipt isn’t submitted by that deadline, the reimbursement will not be processed.
+2026-09-08 00:38:57,305 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:38:59,979 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:39:01,141 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:39:02,369 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:39:02,377 | INFO | hr_assistant.pipeline | User question: Who is responsible for handling IT hardware asset returns when an employee leaves the company, and what is their contact email?
+2026-09-08 00:39:03,427 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:39:04,202 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:39:04,210 | INFO | hr_assistant.tools | search_hr_policy called with query : responsible for handling IT hardware asset returns when an employee leaves contact email
+2026-09-08 00:39:05,923 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:39:05,928 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:39:06,520 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:39:06,522 | INFO | hr_assistant.pipeline | Final answer: When an employee leaves the company, **Kevin Zhang** in HR is responsible for handling the return of all IT hardware assets (laptops, monitors, security keycards, etc.).  
+
+**Contact email:** kevin.zhang@apexglobal.tech
+2026-09-08 00:39:08,018 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-08 00:39:08,086 | ERROR | langsmith.evaluation._runner | Error running target function: Error code: 400 - {'error': {'message': "Parsing failed. The model generated output that could not be parsed. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'output_parse_failed', 'failed_generation': ''}}
+Traceback (most recent call last):
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1999, in _forward
+    fn(*args, langsmith_extra=langsmith_extra)
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 781, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "D:\basic_rag\hr_assistant\evaluation.py", line 244, in target
+    answer = ask(agent, inputs["question"])
+  File "D:\basic_rag\hr_assistant\pipeline.py", line 88, in ask
+    output_is_safe, _ = check_output(answer)
+                        ~~~~~~~~~~~~^^^^^^^^
+  File "D:\basic_rag\hr_assistant\guadrails.py", line 151, in check_output
+    is_safe, reason = _check_safety(answer, OUTPUT_POLICY)
+                      ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\basic_rag\hr_assistant\guadrails.py", line 112, in _check_safety
+    response = _guard_llm.invoke(
+        [
+    ...<2 lines>...
+        ]
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 476, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1849, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1656, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1994, in _generate_with_cache
+    result = self._generate(
+        messages, stop=stop, run_manager=run_manager, **kwargs
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_groq\chat_models.py", line 627, in _generate
+    response = self.client.create(messages=message_dicts, **params)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\groq\resources\chat\completions.py", line 461, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/openai/v1/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<45 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\groq\_base_client.py", line 1242, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\groq\_base_client.py", line 1044, in request
+    raise self._make_status_error_from_response(err.response) from None
+groq.BadRequestError: Error code: 400 - {'error': {'message': "Parsing failed. The model generated output that could not be parsed. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'output_parse_failed', 'failed_generation': ''}}
+2026-09-08 00:39:09,201 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:39:09,210 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator groundedness_evaluator> on run 01a07d46-1e29-7eb2-a4b8-bc449f80eec7: KeyError('answer')
+Traceback (most recent call last):
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1689, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+        run=run,
+        example=example,
+        evaluator_run_id=evaluator_run_id,
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 370, in evaluate_run
+    result = self.func(
+        run,
+        example,
+        langsmith_extra={"run_id": evaluator_run_id, "metadata": metadata},
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 781, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+  File "D:\basic_rag\hr_assistant\evaluation.py", line 264, in groundedness_evaluator
+    return groundedness_judge(outputs={"answer": outputs["answer"]}, context=outputs["context"])
+                                                 ~~~~~~~^^^^^^^^^^
+KeyError: 'answer'
+2026-09-08 00:39:09,213 | INFO | hr_assistant.pipeline | User question: What are the daily meal allowance caps for domestic and international business travel?
+2026-09-08 00:39:09,742 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:39:10,459 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:39:10,464 | INFO | hr_assistant.tools | search_hr_policy called with query : daily meal allowance caps for domestic and international business travel
+2026-09-08 00:39:12,539 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:39:12,543 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:39:13,718 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:39:13,721 | INFO | hr_assistant.pipeline | Final answer: According to the company travel‑expense policy:
+
+- **Domestic business travel:** the meal allowance is capped at **$75 per day**.  
+- **International business travel:** the meal allowance is capped at **$120 per day**.  
+
+These caps apply to each day of travel and are the maximum amounts that can be reimbursed for meals.
+2026-09-08 00:39:14,649 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:39:17,310 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:39:18,665 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:39:20,019 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:39:20,024 | INFO | hr_assistant.pipeline | User question: What are the core hours during which all full-time employees must be available?
+2026-09-08 00:39:22,129 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:39:23,320 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:39:23,327 | INFO | hr_assistant.tools | search_hr_policy called with query : core hours full-time employees must be available
+2026-09-08 00:39:42,736 | ERROR | langsmith.evaluation._runner | Error running target function: HTTPSConnectionPool(host='api.jina.ai', port=443): Read timed out. (read timeout=None)
+Traceback (most recent call last):
+  File "D:\basic_rag\basicragenv\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "D:\basic_rag\basicragenv\Lib\site-packages\urllib3\connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 1450, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\socket.py", line 725, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\basic_rag\basicragenv\Lib\site-packages\requests\adapters.py", line 696, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\urllib3\connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\urllib3\util\retry.py", line 498, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "D:\basic_rag\basicragenv\Lib\site-packages\urllib3\connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\urllib3\connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+        self, url, f"Read timed out. (read timeout={timeout_value})"
+    ) from err
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.jina.ai', port=443): Read timed out. (read timeout=None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1999, in _forward
+    fn(*args, langsmith_extra=langsmith_extra)
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 781, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "D:\basic_rag\hr_assistant\evaluation.py", line 244, in target
+    answer = ask(agent, inputs["question"])
+  File "D:\basic_rag\hr_assistant\pipeline.py", line 82, in ask
+    response = agent.invoke({"messages": [{"role": "user", "content": question}]})
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 3913, in invoke
+    for chunk in self.stream(
+                 ~~~~~~~~~~~^
+        input,
+        ^^^^^^
+    ...<11 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ):
+    ^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 2967, in stream
+    for _ in runner.tick(
+             ~~~~~~~~~~~^
+        [t for t in loop.tasks.values() if not t.writes],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        schedule_task=loop.accept_push,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\pregel\_runner.py", line 207, in tick
+    run_with_retry(
+    ~~~~~~~~~~~~~~^
+        t,
+        ^^
+    ...<10 lines>...
+        },
+        ^^
+    )
+    ^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\pregel\_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 684, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 426, in invoke
+    ret = self.func(*args, **kwargs)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\prebuilt\tool_node.py", line 822, in _func
+    outputs = list(
+        executor.map(self._run_one, tool_calls, input_types, tool_runtimes)
+    )
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 639, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 311, in _result_or_cancel
+    return fut.result(timeout)
+           ~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 450, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\ashwi\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_core\runnables\config.py", line 650, in _wrapped_fn
+    return contexts.pop().run(fn, *args)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\prebuilt\tool_node.py", line 1046, in _run_one
+    return self._execute_tool_sync(tool_request, input_type, config)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\prebuilt\tool_node.py", line 1006, in _execute_tool_sync
+    content = _handle_tool_error(e, flag=self._handle_tool_errors)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\prebuilt\tool_node.py", line 434, in _handle_tool_error
+    content = flag(e)  # type: ignore [assignment, call-arg]
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\prebuilt\tool_node.py", line 391, in _default_handle_tool_errors
+    raise e
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langgraph\prebuilt\tool_node.py", line 958, in _execute_tool_sync
+    response = tool.invoke(call_args, config)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_core\tools\base.py", line 738, in invoke
+    return self.run(tool_input, **kwargs)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_core\tools\base.py", line 1100, in run
+    raise error_to_raise
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_core\tools\base.py", line 1066, in run
+    response = context.run(self._run, *tool_args, **tool_kwargs)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_core\tools\structured.py", line 97, in _run
+    return self.func(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\basic_rag\hr_assistant\tools.py", line 16, in search_hr_policy
+    matching_chunks = retriever.invoke(question)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_core\retrievers.py", line 222, in invoke
+    result = self._get_relevant_documents(
+        input, run_manager=run_manager, **kwargs_
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_core\vectorstores\base.py", line 1045, in _get_relevant_documents
+    docs = self.vectorstore.similarity_search(query, **kwargs_)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_qdrant\qdrant.py", line 538, in similarity_search
+    results = self.similarity_search_with_score(
+        query,
+    ...<7 lines>...
+        **kwargs,
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_qdrant\qdrant.py", line 583, in similarity_search_with_score
+    query_dense_embedding = embeddings.embed_query(query)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_community\embeddings\jina.py", line 109, in embed_query
+    return self._embed([text])[0]
+           ~~~~~~~~~~~^^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langchain_community\embeddings\jina.py", line 79, in _embed
+    resp = self.session.post(
+           ~~~~~~~~~~~~~~~~~^
+        JINA_API_URL, json={"input": input, "model": self.model_name}
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).json()
+    ^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\requests\sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\basic_rag\basicragenv\Lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\requests\sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\basic_rag\basicragenv\Lib\site-packages\requests\adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.jina.ai', port=443): Read timed out. (read timeout=None)
+During task with name 'tools' and id 'a445dac7-41c3-4676-6774-2b4fbf1089b9'
+2026-09-08 00:39:58,735 | INFO | openai._base_client | Retrying request to /chat/completions in 0.386327 seconds
+2026-09-08 00:40:02,443 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:40:02,451 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator groundedness_evaluator> on run 01a07d46-6318-7a60-ba52-b25f8fa6607f: KeyError('answer')
+Traceback (most recent call last):
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1689, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+        run=run,
+        example=example,
+        evaluator_run_id=evaluator_run_id,
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 370, in evaluate_run
+    result = self.func(
+        run,
+        example,
+        langsmith_extra={"run_id": evaluator_run_id, "metadata": metadata},
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 781, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "D:\basic_rag\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+  File "D:\basic_rag\hr_assistant\evaluation.py", line 264, in groundedness_evaluator
+    return groundedness_judge(outputs={"answer": outputs["answer"]}, context=outputs["context"])
+                                                 ~~~~~~~^^^^^^^^^^
+KeyError: 'answer'
+2026-09-08 00:40:02,454 | INFO | hr_assistant.pipeline | User question: What internet speed is required for fully remote employees?
+2026-09-08 00:40:25,478 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:40:26,666 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:40:26,674 | INFO | hr_assistant.tools | search_hr_policy called with query : internet speed required for fully remote employees
+2026-09-08 00:40:37,259 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:40:37,264 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:40:38,681 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:40:38,686 | INFO | hr_assistant.pipeline | Final answer: The employee handbook specifies that fully remote employees must maintain **a stable high‑speed internet connection with a minimum download speed of 50 Mbps**. This ensures they can stay reachable via Slack, email, and other work tools during core hours.
+2026-09-08 00:40:41,213 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:40:51,542 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:40:52,632 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:40:53,566 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:40:53,590 | INFO | hr_assistant.pipeline | User question: Who must approve business travel expenses, and who approves overtime work for non-exempt employees?
+2026-09-08 00:40:54,389 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:40:54,876 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:40:54,881 | INFO | hr_assistant.tools | search_hr_policy called with query : who must approve business travel expenses approval policy
+2026-09-08 00:40:57,567 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:40:57,572 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:40:59,810 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:40:59,830 | INFO | hr_assistant.tools | search_hr_policy called with query : who approves overtime work non-exempt employees
+2026-09-08 00:41:10,095 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:41:10,099 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:41:11,658 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:41:11,665 | INFO | hr_assistant.pipeline | Final answer: **Business‑travel expense approvals**  
+- All business‑travel trips must be **pre‑approved by our CFO, Marcus Vance** before any expenses are incurred.
+
+**Overtime approvals for non‑exempt employees**  
+- Any overtime (hours > 40 in a calendar week) must be **pre‑approved in writing by both the CFO — Marcus Vance — and the employee’s line manager**.
+
+If you need help submitting a travel request or an overtime request, just let me know!
+2026-09-08 00:41:13,572 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:41:33,088 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:41:34,765 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:41:36,040 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:41:36,048 | INFO | hr_assistant.pipeline | User question: How many paid sick days do employees get per year, and when is a medical certificate required?
+2026-09-08 00:41:42,425 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:41:43,968 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:41:43,976 | INFO | hr_assistant.tools | search_hr_policy called with query : paid sick days per year and when is a medical certificate required
+2026-09-08 00:41:50,492 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:41:50,495 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:41:53,786 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:41:53,791 | INFO | hr_assistant.pipeline | Final answer: Employees receive **10 paid sick‑leave days per calendar year** (full‑time staff get the full 10 days up front on January 1; new hires get a pro‑rated amount).  
+
+A medical certificate is required **only when the sick leave extends to three or more consecutive business days**. For one‑ or two‑day absences, a self‑certification in the HR portal is sufficient.
+2026-09-08 00:41:54,852 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:42:00,859 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:42:02,242 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:42:04,363 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:42:04,371 | INFO | hr_assistant.pipeline | User question: What is the notice period for voluntary resignation for individual contributors versus managers and executives?
+2026-09-08 00:42:05,081 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:42:05,734 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:42:05,740 | INFO | hr_assistant.tools | search_hr_policy called with query : notice period for voluntary resignation individual contributors managers executives
+2026-09-08 00:42:08,162 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:42:08,167 | INFO | hr_assistant.tools | Founnd 3 matching chunks (s)
+2026-09-08 00:42:09,607 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:42:09,614 | INFO | hr_assistant.pipeline | Final answer: The HR policy specifies the following notice periods for a voluntary resignation:
+
+| Employee type | Required notice |
+|---------------|-----------------|
+| **Individual Contributors** | **30 days** written notice |
+| **Managers, Directors & Executives** | **60 days** written notice |
+
+The resignation letter must be submitted in writing to both the employee’s line manager and Sarah Jenkins, VP of HR.
+2026-09-08 00:42:10,524 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:42:17,734 | INFO | httpx | HTTP Request: POST https://888a87b1-d0f4-49ee-822b-35c10ea6ab5a.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-08 00:42:19,757 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 00:42:20,648 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
