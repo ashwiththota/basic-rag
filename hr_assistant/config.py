@@ -34,7 +34,7 @@ DATA_FILE_PATH = os.path.join("data" , "hr_policy.txt")
 
 QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
 QDRANT_URL = os.getenv("QDRANT_URL")
-QDRANT_COLLECTION_NAME = os.getenv("QDRANT_COLLECTION_NAME","hr_policy")
+QDRANT_COLLECTION_NAME = os.getenv("QDRANT_COLLECTION_NAME","hr_policy") #this creates the cluster in the Qdrant website
 
 
 

@@ -109,12 +109,17 @@ EXAMPLES
 
 def _check_safety(text: str, policy: str) -> tuple[bool, str]:
     """Return (is_safe, reason) for the given text under the given policy."""
-    response = _guard_llm.invoke(
-        [
-            {"role": "system", "content": policy},
-            {"role": "user", "content": text},
-        ]
-    )
+    try:
+        response = _guard_llm.invoke(
+            [
+                {"role": "system", "content": policy},
+                {"role": "user", "content": text},
+            ]
+        )
+    except Exception as e:
+        logger.warning("Guard model call failed: %s", e)
+        return False, f"Guard model error: {e}"
+
     try:
         result = json.loads(response.content)
     except json.JSONDecodeError:
@@ -123,8 +128,6 @@ def _check_safety(text: str, policy: str) -> tuple[bool, str]:
     is_safe = result.get("violation", 0) == 0
     reason = result.get("rationale", "")
     return is_safe, reason
-
-
 
 # input safety 
 

@@ -59,7 +59,7 @@ def build_hr_assistant(file_path: str = config.DATA_FILE_PATH):
 
     vector_store = build_vector_store_for_document(file_path)
     retriever = get_retriever(vector_store)
-    search_tool = create_search_tool(retriever)
+    search_tool = create_search_tool(retriever) # tool which serachs the retriever
 
     llm = get_llm()
     agent = create_hr_agent(llm, [search_tool])

@@ -27,5 +27,6 @@ def check_langsmith_tracing() -> None:
             config.LANGSMITH_PROJECT,
             "https://smith.langchain.com",
         )
+
     else:
         logger.info("LangSmith tracing is OFF (set LANGSMITH_TRACING=true in .env to enable)")
